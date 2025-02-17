@@ -1,0 +1,4130 @@
+{
+	"info": {
+		"_postman_id": "fb1c66cb-f7fb-438f-b624-aca2931dbf4e",
+		"name": "Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "14179612-fb1c66cb-f7fb-438f-b624-aca2931dbf4e"
+	},
+	"item": [
+		{
+			"name": "Banking",
+			"item": [
+				{
+					"name": "Get Account Balance",
+					"id": "5e345176-0d22-44e8-b454-186388b79c21",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/banking/balance",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"banking",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Banking",
+					"id": "447bbc42-e869-4f71-a3eb-fde602da3457",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/banking",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"banking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save new Account Banking",
+					"id": "a6203d6b-4174-4254-9b85-25c1767a0223",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImEtMlZSZHBUT050UlpCa1EzeHQxMyJ9.eyJpc3MiOiJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NGNiOTNjNDcyMDdlMDFmMmQ5MzFkOTQiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuc3VuaXplLmNvbS5ici8iLCJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2OTQxMDcyNzUsImV4cCI6MTY5NDE5MzY3NSwiYXpwIjoiNDlDR1hoYTJuMmZnZ0sydlN6ZjRLYnJ6R2VzYkZZZHAiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIn0.j4gQ5T8nr6e5fTVxkiHEQiXktCpUUDRcsEgVmSmmwC4vN5mxNqDv07v7Y3ZhykUf6H9RqrDYXcZr1tR5Nuo7o1JsMadNIq8mU7LGCbgM__NQG4lA1g925hVTev7Po0ZORkE8CtPMbPAPFhE1LcVbml9w85b0a8HvVXy5XXncVn9cXM_A2Ch8we33lPI7J-LbciJ8gkhI1GcJn0rAz4VEZD1gNw3Zy32r8Th62mpNkkN_-Stw1-SaCJS_eBSbRVrF9ZIcSwc23EmQJfv682ANXtYS60DViWc67agLt1ierDRJWM7FsfWq7mDM0iNz7dpmM0GS-oNrDrz0GxcdkHMpVg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Matheus Ferreira\",\r\n    \"identity\": \"50349923884\",\r\n    \"is_corporate\": false,\r\n    \"responsible_phone\": \"5511953710163\",\r\n    \"bank_code\": \"341\",\r\n    \"bank_agency\": \"8895\",\r\n    \"bank_account\": \"14469\",\r\n    \"bank_digit\": \"3\",\r\n    \"bank_type\": \"CC\",\r\n    \"address_street\": \"Rua santa ernestina\",\r\n    \"address_number\": \"61\",\r\n    \"address_district\": \"Bela Vista\",\r\n    \"address_city\": \"São Paulo\",\r\n    \"address_state\": \"São Paulo\",\r\n    \"address_state_initials\": \"SP\",\r\n    \"address_zipcode\": \"01323040\",\r\n    \"address_country\": \"Brasil\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/banking",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"banking"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "d08467c0-b32e-438e-8ec8-14c73e4386fa"
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Sales Record",
+					"id": "ea18f2f6-22ed-4cb8-84ab-ced80c531aeb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}transactions?page=1&items_per_page=10&payment_method[1]=PIX&payment_method[0]=CREDIT_CARD&status=all&products=all&links=all",
+							"host": [
+								"{{SERVER_ROUTE}}transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "items_per_page",
+									"value": "10"
+								},
+								{
+									"key": "utm_source",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "utm_medium",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "utm_campaign",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "utm_term",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "utm_content",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "{{$isoTimestamp}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "{{$isoTimestamp}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "payment_method[1]",
+									"value": "PIX"
+								},
+								{
+									"key": "payment_method[0]",
+									"value": "CREDIT_CARD"
+								},
+								{
+									"key": "status",
+									"value": "all"
+								},
+								{
+									"key": "products",
+									"value": "all"
+								},
+								{
+									"key": "links",
+									"value": "all"
+								},
+								{
+									"key": "search",
+									"value": "a",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Sales Record",
+					"id": "75bf9761-268f-422c-aa92-a2abc61a1c04",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}transactions?page=1&items_per_page=10&payment_method[1]=PIX&payment_method[0]=CREDIT_CARD&status=all&products=all&links=all",
+							"host": [
+								"{{SERVER_ROUTE}}transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "items_per_page",
+									"value": "10"
+								},
+								{
+									"key": "utm_source",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "utm_medium",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "utm_campaign",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "utm_term",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "utm_content",
+									"value": "utm_test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "{{$isoTimestamp}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "{{$isoTimestamp}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "payment_method[1]",
+									"value": "PIX"
+								},
+								{
+									"key": "payment_method[0]",
+									"value": "CREDIT_CARD"
+								},
+								{
+									"key": "status",
+									"value": "all"
+								},
+								{
+									"key": "products",
+									"value": "all"
+								},
+								{
+									"key": "links",
+									"value": "all"
+								},
+								{
+									"key": "search",
+									"value": "a",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "85c83914-271e-4bde-96a7-32dd321113cb"
+		},
+		{
+			"name": "Metrics",
+			"item": [
+				{
+					"name": "Get metrics",
+					"id": "6ab42940-4348-4802-9f6a-357d199144d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/metrics/revenue?period=30d",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"metrics",
+								"revenue"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "30d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get metrics sales",
+					"id": "bb56bcef-3c52-456e-9435-7118f07913b2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/metrics/revenue/period",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"metrics",
+								"revenue",
+								"period"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction List",
+					"id": "5d8c5f3e-711e-48f4-9963-a5eab4156ad9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2Nzk5NTAwOTksImV4cCI6MTY4MDU1NDg5OX0.W9sIguirBfdipXsbPNSUOZKHzITWoiH8oPw3m7e8fGU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}/checkout/transactions?product=2&status=PENDING&page=1",
+							"host": [
+								"{{SERVER_ROUTE}}"
+							],
+							"path": [
+								"checkout",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "initialDate",
+									"value": "2023-02-27T23:33:22.551Z",
+									"disabled": true
+								},
+								{
+									"key": "finalDate",
+									"value": "{{$isoTimestamp}}",
+									"disabled": true
+								},
+								{
+									"key": "product",
+									"value": "2"
+								},
+								{
+									"key": "initialPrice",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "finalPrice",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "PENDING"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get account banking",
+					"id": "b5a928d9-303b-4443-af7f-b1240f8edf69",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "cd9d0fda-6080-437f-abe4-d1e21816466b"
+		},
+		{
+			"name": "Checkout",
+			"item": [
+				{
+					"name": "IPN",
+					"item": [
+						{
+							"name": "[SAFE2PAY] Force Notification",
+							"id": "2234b7eb-2f2f-44d4-bdc1-4494e713b79b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"IdTransaction\": 71645638,\r\n  \"TransactionStatus\": {\r\n    \"Id\": 3,\r\n    \"Code\": \"3\",\r\n    \"Name\": \"Autorizado\"\r\n  },\r\n    \"CheckingAccounts\": [\r\n        {\r\n            \"Description\": \"Cliente de Teste (1111111111)\",\r\n            \"Amount\": 9.03,\r\n            \"Tax\": 0.97,\r\n            \"IsTransferred\": false,\r\n            \"ReleaseDate\": \"2022-04-01T00:00:00\"\r\n        }\r\n    ],\r\n    \"PaymentMethod\": {\r\n        \"Id\": 6,\r\n        \"Code\": \"6\",\r\n        \"Name\": \"Pix Recebimento\",\r\n    \"Show\": false\r\n    },\r\n  \"Application\": \"Aplicação de teste\",\r\n  \"Vendor\": \"João da Silva\",\r\n  \"Amount\": 10.0,\r\n  \"PaymentDate\": \"2023-10-26T05:37:53.33\",\r\n  \"IncluedDate\": \"2023-10-26T05:37:55.01\",\r\n  \"InstallmentQuantity\": 0,\r\n  \"SecretKey\": \"948E1B3ABB094CEB9E445D9708C0BC17696A5186059C4221BBBF24D8174D63CA\",\r\n  \"Reference\": \"OD063AY5911B\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}ipn/safe2pay",
+									"host": [
+										"{{SERVER_ROUTE}}ipn"
+									],
+									"path": [
+										"safe2pay"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[SUITPAY] Force Notification",
+							"id": "3fdd063c-d3be-47e6-bf3d-9c5a703cd851",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"IdTransaction\": 71645638,\r\n  \"TransactionStatus\": {\r\n    \"Id\": 3,\r\n    \"Code\": \"3\",\r\n    \"Name\": \"Autorizado\"\r\n  },\r\n    \"CheckingAccounts\": [\r\n        {\r\n            \"Description\": \"Cliente de Teste (1111111111)\",\r\n            \"Amount\": 9.03,\r\n            \"Tax\": 0.97,\r\n            \"IsTransferred\": false,\r\n            \"ReleaseDate\": \"2022-04-01T00:00:00\"\r\n        }\r\n    ],\r\n    \"PaymentMethod\": {\r\n        \"Id\": 6,\r\n        \"Code\": \"6\",\r\n        \"Name\": \"Pix Recebimento\",\r\n    \"Show\": false\r\n    },\r\n  \"Application\": \"Aplicação de teste\",\r\n  \"Vendor\": \"João da Silva\",\r\n  \"Amount\": 10.0,\r\n  \"PaymentDate\": \"2023-10-26T05:37:53.33\",\r\n  \"IncluedDate\": \"2023-10-26T05:37:55.01\",\r\n  \"InstallmentQuantity\": 0,\r\n  \"SecretKey\": \"948E1B3ABB094CEB9E445D9708C0BC17696A5186059C4221BBBF24D8174D63CA\",\r\n  \"Reference\": \"OD063AY5911B\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}ipn/suitpay",
+									"host": [
+										"{{SERVER_ROUTE}}ipn"
+									],
+									"path": [
+										"suitpay"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[PAGSTAR] Force Notification",
+							"id": "f229499c-44f8-400a-bc09-6bba9d2debf5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"external_reference\": \"830HSM82DQ2L\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}ipn/pagstar",
+									"host": [
+										"{{SERVER_ROUTE}}ipn"
+									],
+									"path": [
+										"pagstar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[MERCADO-PAGO] Force Notification",
+							"id": "ec2041e8-a1ab-4c21-b08c-e7398178f648",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}ipn/mercadopago?topic=payment&id=71198345784",
+									"host": [
+										"{{SERVER_ROUTE}}ipn"
+									],
+									"path": [
+										"mercadopago"
+									],
+									"query": [
+										{
+											"key": "topic",
+											"value": "payment"
+										},
+										{
+											"key": "id",
+											"value": "71198345784"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "e48e8ea4-3d74-49e5-a252-acf23729c32b"
+				},
+				{
+					"name": "Start checkout",
+					"id": "8c9548b7-13ad-42ae-832c-a49501373110",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payment_method\": \"PIX\",\r\n    \"use_two_cards\": false,\r\n    \"product_id\": \"e1ecb8e0-68c4-491b-9bee-b04e061e74fc\",\r\n    \"product_value\": 10,\r\n    \"product_link\": \"XyMcghYe\",\r\n    \"payer\": {\r\n        \"name\": \"Matheus Gozador\",\r\n        \"email\":  \"email@gmail.com\",\r\n        \"document\": \"cpf\",\r\n        \"phone\": \"+5511970707070\"\r\n    },\r\n    \"card_data\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}checkout/payment",
+							"host": [
+								"{{SERVER_ROUTE}}checkout"
+							],
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment Status",
+					"id": "85f43904-44f5-4018-9a6a-966a2eb7ac6c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}checkout/payment/status/:id",
+							"host": [
+								"{{SERVER_ROUTE}}checkout"
+							],
+							"path": [
+								"payment",
+								"status",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3db54ab2-962e-4e5d-b231-1edafa158c69"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Payment",
+					"id": "0d2bee67-0af8-415c-adcc-0b5013485649",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\": \"b1b61637-6440-4606-aa74-554fff7d14b2\",\r\n    \"payment_method\": \"CREDIT_CARD\",\r\n    \"visitor_id\": \"f937abd2-ef8a-4158-b929-8a14e3501987\",\r\n    \"name\": \"Matheus Gozador\",\r\n    \"document\": \"cpf\",\r\n    \"phone\": \"+55119707070\",\r\n    \"email\": \"email@gmail.com\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}checkout/payment/start",
+							"host": [
+								"{{SERVER_ROUTE}}checkout"
+							],
+							"path": [
+								"payment",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Chekout",
+					"id": "98784071-8386-4a40-9408-aa814526a123",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-07-14 010102.png"
+								},
+								{
+									"key": "bump_id",
+									"value": "ec00641a-2d2b-4bc5-b2e9-77ba134c639d",
+									"type": "text"
+								},
+								{
+									"key": "product_link",
+									"value": "KXStCoqR",
+									"type": "text"
+								},
+								{
+									"key": "aux_phrase",
+									"value": "Frase auxiliar de teste",
+									"type": "text"
+								},
+								{
+									"key": "sell_phrase",
+									"value": "Frase de venda de teste",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}checkout/product/:short_id",
+							"host": [
+								"{{SERVER_ROUTE}}checkout"
+							],
+							"path": [
+								"product",
+								":short_id"
+							],
+							"variable": [
+								{
+									"key": "short_id",
+									"value": "hQGGrqNp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refund Transaction",
+					"id": "9a9e9b8e-7e65-46d8-9b39-1bf97b5ab316",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}transactions/refund/:transaction_id",
+							"host": [
+								"{{SERVER_ROUTE}}transactions"
+							],
+							"path": [
+								"refund",
+								":transaction_id"
+							],
+							"variable": [
+								{
+									"key": "transaction_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics for pixel",
+					"id": "c92fc2d2-99cf-4cd4-95cc-6e585f197783",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"event_name\": \"PageView\",\r\n        \"event_source_url\": \"https://pay.sunize.com.br/Kqnmalvg\",\r\n        \"event_time\": {{$timestamp}},\r\n        \"user_data\": {\r\n            \"external_id\": \"client-1-1321\",\r\n            \"fbp\": \"fb.2.1703678319608.59172474\"\r\n        }\r\n    },\r\n    \"test_event_code\": \"TEST77951\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}checkout/metrics/:short_id/meta",
+							"host": [
+								"{{SERVER_ROUTE}}checkout"
+							],
+							"path": [
+								"metrics",
+								":short_id",
+								"meta"
+							],
+							"variable": [
+								{
+									"key": "short_id",
+									"value": "Kqnmalvg"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "f6029127-3881-4ef6-a6c6-a062cd1052b2"
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "Listar todos produtos comprados",
+					"id": "798b4fe3-32e9-4c72-81b3-af437f200ed2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/purchases/products",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"purchases",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar produto comprado",
+					"id": "e20e73a3-8719-4061-a4e5-89728dfaaadd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/purchases/products/:product_id",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"purchases",
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "be71d7a7-201e-4992-8941-09367d0946df"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Lessons",
+					"id": "ab7006fb-4b3e-488d-bcaa-cced749ede6b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/purchases/products/:product_id/lessons",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"purchases",
+								"products",
+								":product_id",
+								"lessons"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "e1ecb8e0-68c4-491b-9bee-b04e061e74fc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "a236d283-3a39-47ed-8ccb-504273f563a7"
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Create User",
+					"id": "ae73c55f-1fbb-4d32-918d-5bf5351ad160",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Matheus Gozador\",\r\n    \"email\": \"gozador@gmail.com\",\r\n    \"phone\": \"+5511970707070\",\r\n    \"identity\": \"00000000000\",\r\n    \"password\": \"teste123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}auth/register",
+							"host": [
+								"{{SERVER_ROUTE}}auth"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c999f53d-57dd-44ce-a619-00596205b51c",
+								"exec": [
+									"let responseData = pm.response.json();\r",
+									"if(!responseData.hasError)\r",
+									"pm.environment.set(\"USER_TOKEN\", responseData.data.token);\r",
+									"pm.environment.set(\"USER_REFRESH_TOKEN\", responseData.data.refresh_token)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d9de8681-5810-4316-a254-905ea4d430d8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "0bdfd236-4be4-4e1d-98d2-ca930f5f1169",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{USER_EMAIL}}\",\r\n    \"password\": \"{{USER_PASSWORD}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}auth/login",
+							"host": [
+								"{{SERVER_ROUTE}}auth"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "96f91890-79a9-40ec-914d-93fcc035f9ff",
+								"exec": [
+									"let responseData = pm.response.json();\r",
+									"if(!responseData.hasError)\r",
+									"pm.environment.set(\"USER_TOKEN\", responseData.data.token);\r",
+									"pm.environment.set(\"USER_REFRESH_TOKEN\", responseData.data.refresh_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "de549982-a517-4bc3-8a49-733a0d904dd8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh_token\": \"{{USER_REFRESH_TOKEN}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}auth/login/refresh",
+							"host": [
+								"{{SERVER_ROUTE}}auth"
+							],
+							"path": [
+								"login",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recovery Password ( send email )",
+					"id": "2b6af1da-389e-4bd6-8bcf-24179a098816",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImEtMlZSZHBUT050UlpCa1EzeHQxMyJ9.eyJpc3MiOiJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NGNiOTNjNDcyMDdlMDFmMmQ5MzFkOTQiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuc3VuaXplLmNvbS5ici8iLCJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2OTQzNDk2NDUsImV4cCI6MTY5NDQzNjA0NSwiYXpwIjoiNDlDR1hoYTJuMmZnZ0sydlN6ZjRLYnJ6R2VzYkZZZHAiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIn0.Q00uaL6sZfBoHZ1IWfzsFMxAIY8YhgnvEE8w3BmWUydzIpq84AwHCO_tHm94RDhQ-yoXzcQSRwWPABeKRyr5zNH7JHEKXGIR5Vi5_0ZfkKb4zJXOVWBDLSAeLDGD5oCu9LaboYu2YBJM0aB6bXVy6uWYIwhpOex8X_O8XnasW0JbQuKOnhE_3FdruGB2hpGP5dlSESwW86o5WIqU3sunW3cVAl6MAIC5AV4e51B2MrhdTTCcb3fTtzfVuJP4tbcBl8Qv6Ky41T77jXWqQDPJsuEXwT6SNn-gd4F0UXnxq5Ag1jf0-IU3O1xd-7ZpCkEQUkdL9ctLXB0SNFZxp75p0Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{USER_EMAIL}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}auth/forgot-password",
+							"host": [
+								"{{SERVER_ROUTE}}auth"
+							],
+							"path": [
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"id": "48bd2c8b-eeba-42d8-b41e-83ec73801a0f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImEtMlZSZHBUT050UlpCa1EzeHQxMyJ9.eyJpc3MiOiJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NGNiOTNjNDcyMDdlMDFmMmQ5MzFkOTQiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuc3VuaXplLmNvbS5ici8iLCJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2OTQzNDk2NDUsImV4cCI6MTY5NDQzNjA0NSwiYXpwIjoiNDlDR1hoYTJuMmZnZ0sydlN6ZjRLYnJ6R2VzYkZZZHAiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIn0.Q00uaL6sZfBoHZ1IWfzsFMxAIY8YhgnvEE8w3BmWUydzIpq84AwHCO_tHm94RDhQ-yoXzcQSRwWPABeKRyr5zNH7JHEKXGIR5Vi5_0ZfkKb4zJXOVWBDLSAeLDGD5oCu9LaboYu2YBJM0aB6bXVy6uWYIwhpOex8X_O8XnasW0JbQuKOnhE_3FdruGB2hpGP5dlSESwW86o5WIqU3sunW3cVAl6MAIC5AV4e51B2MrhdTTCcb3fTtzfVuJP4tbcBl8Qv6Ky41T77jXWqQDPJsuEXwT6SNn-gd4F0UXnxq5Ag1jf0-IU3O1xd-7ZpCkEQUkdL9ctLXB0SNFZxp75p0Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{USER_EMAIL}}\",\r\n    \"code\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}auth/reset-password",
+							"host": [
+								"{{SERVER_ROUTE}}auth"
+							],
+							"path": [
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password ( Token )",
+					"id": "3f42b7c0-cace-46cf-a21d-9f3f5d222e10",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImEtMlZSZHBUT050UlpCa1EzeHQxMyJ9.eyJpc3MiOiJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NGNiOTNjNDcyMDdlMDFmMmQ5MzFkOTQiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuc3VuaXplLmNvbS5ici8iLCJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2OTQzNDk2NDUsImV4cCI6MTY5NDQzNjA0NSwiYXpwIjoiNDlDR1hoYTJuMmZnZ0sydlN6ZjRLYnJ6R2VzYkZZZHAiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIn0.Q00uaL6sZfBoHZ1IWfzsFMxAIY8YhgnvEE8w3BmWUydzIpq84AwHCO_tHm94RDhQ-yoXzcQSRwWPABeKRyr5zNH7JHEKXGIR5Vi5_0ZfkKb4zJXOVWBDLSAeLDGD5oCu9LaboYu2YBJM0aB6bXVy6uWYIwhpOex8X_O8XnasW0JbQuKOnhE_3FdruGB2hpGP5dlSESwW86o5WIqU3sunW3cVAl6MAIC5AV4e51B2MrhdTTCcb3fTtzfVuJP4tbcBl8Qv6Ky41T77jXWqQDPJsuEXwT6SNn-gd4F0UXnxq5Ag1jf0-IU3O1xd-7ZpCkEQUkdL9ctLXB0SNFZxp75p0Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"matheus.fdev03@gmail.com\",\r\n    \"token\": \"9529jnrr6ps\",\r\n    \"password\": \"senhafodaatualizada\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}auth/reset-password",
+							"host": [
+								"{{SERVER_ROUTE}}auth"
+							],
+							"path": [
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar senha",
+					"id": "d1598356-b9e4-4b3c-ae8b-b2168c1bf3b3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"old_password\": \"senhafodaatualizada\",\r\n \"new_password\": \"SenhaSeguraCom@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/auth/changepass",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"auth",
+								"changepass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate email",
+					"id": "d66517ad-6269-44ec-ab85-28416d997f55",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{USER_EMAIL}}\",\r\n    \"hash\": \"lQN8EZdeFYYCo3ygo5R15hqLq7xCApeeO4ik5jbPpDPTzbVXal6EAhUzCX6ueb4jjI3j5wJJgL3q2VMX6IAAXW8rUcfMTUQo9F3wH2jLDSogaqKKbEcGEF7OJYl9eyGj\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}auth/validate-email",
+							"host": [
+								"{{SERVER_ROUTE}}auth"
+							],
+							"path": [
+								"validate-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send new email validation",
+					"id": "cd2d5f86-e634-4895-bec8-488a06fc7141",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"joaolucascardosocorreia@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}auth/validate-email/resend",
+							"host": [
+								"{{SERVER_ROUTE}}auth"
+							],
+							"path": [
+								"validate-email",
+								"resend"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "b85ba123-7af2-4153-bd87-21b76190df61"
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Pixels",
+					"item": [
+						{
+							"name": "List pixels from product",
+							"id": "ca266769-115d-4d14-8a3d-0becfa2e9d1f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/pixels/list/:product_id",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										"pixels",
+										"list",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "cc4f1193-d423-49aa-af07-23c62af57d40"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pixel",
+							"id": "40b5921f-1fa0-47c4-885e-ab4ae335dfd8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"type\": \"TIKTOK\",\r\n \"content\": \"1123123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/pixels/update/:product_id",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										"pixels",
+										"update",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "cc4f1193-d423-49aa-af07-23c62af57d40"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "5eb30e02-61d1-4408-a9b1-1897d2ea9be6"
+				},
+				{
+					"name": "Sections",
+					"item": [
+						{
+							"name": "Sections List",
+							"id": "10369c5f-a944-496d-8fdb-20d2abc9fff6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "edd0bbdc-8b0c-4316-8633-1ccb80df91d9"
+				},
+				{
+					"name": "checkout",
+					"item": [
+						{
+							"name": "Get Product Checkout",
+							"id": "648d61ad-d53e-45cc-8578-9f07ce3a6ec3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/checkout/:product_id",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										"checkout",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "397f693a-16fe-4743-96f7-07a5ad2f7418"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update product checkout",
+							"id": "d1e472bc-3a9c-492e-8110-5bd7264eb686",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"upsell_url\": null,\r\n    \"whatsapp_link\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/checkout/:product_id",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										"checkout",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "397f693a-16fe-4743-96f7-07a5ad2f7418"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "a416abe4-dedc-4c87-a234-b575131a9e95"
+				},
+				{
+					"name": "CoProducers",
+					"item": [
+						{
+							"name": "Add Co_Producer",
+							"id": "e1c09c1c-c2c0-4d62-9443-77ecabbdd00a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"co_producer_email\": \"matheus.fdev03@gmail.com\",\r\n    \"commission\": 70,\r\n    \"commission_order_bump\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/coproducers/add",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"coproducers",
+										"add"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "9aae6136-ccf7-4e5e-b072-74efb429992b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Co_Producers",
+							"id": "eccd4274-e03b-4432-8008-e263325a21d3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/coproducers/list",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"coproducers",
+										"list"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "397f693a-16fe-4743-96f7-07a5ad2f7418"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "accept or refuse coproducer invite",
+							"id": "b1eb6e31-09e4-408a-92ee-f66ba0323f80",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/coproducers/invite/accept",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"coproducers",
+										"invite",
+										"accept"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "9aae6136-ccf7-4e5e-b072-74efb429992b"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "6f47bb0c-86cc-491a-ba42-8bf38398fac8"
+				},
+				{
+					"name": "Modules",
+					"item": [
+						{
+							"name": "List all Modules",
+							"id": "c15b8044-dbc0-4dbf-8c1c-d06a31e00add",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/modules",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"modules"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "e1ecb8e0-68c4-491b-9bee-b04e061e74fc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Module",
+							"id": "557680f3-3ed8-4806-b14e-1620e37488f9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Teste 2",
+											"type": "text"
+										},
+										{
+											"key": "show_title",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"filesNotInWorkingDirectory": [
+												"/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+											],
+											"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/modules",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"modules"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "e1ecb8e0-68c4-491b-9bee-b04e061e74fc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "b56c81cc-84da-41a5-86b6-0d619e1fbdb9"
+				},
+				{
+					"name": "Lessons",
+					"item": [
+						{
+							"name": "List all lessons",
+							"id": "f3c74a0f-598c-48f9-a30f-e34d68d2aa6a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/lessons",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"lessons"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "e1ecb8e0-68c4-491b-9bee-b04e061e74fc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get lesson by id",
+							"id": "a70926eb-c18f-48f4-89da-5a17fe9d9fdf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/lessons/:lesson_id",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"lessons",
+										":lesson_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "9ec103ba-c55b-448d-a825-d1e648ff1013"
+										},
+										{
+											"key": "lesson_id",
+											"value": "ac2c0c91-6048-4eb6-88d2-5102d8761fcb"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Lesson",
+							"id": "4f5d124b-a7f7-40af-96e8-e3cffc112800",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "module_id",
+											"value": "3b8245a0-7441-41e9-ba4d-83c69604dc92",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Teste",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "teste",
+											"type": "text"
+										},
+										{
+											"key": "lesson_type",
+											"value": "video",
+											"type": "text"
+										},
+										{
+											"key": "video_url",
+											"value": "teste",
+											"type": "text"
+										},
+										{
+											"key": "draft",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "comments",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "availability",
+											"value": "immediate",
+											"type": "text"
+										},
+										{
+											"key": "thumbnail",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"filesNotInWorkingDirectory": [
+												"/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+											],
+											"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+										},
+										{
+											"key": "materials",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"filesNotInWorkingDirectory": [
+												"/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+											],
+											"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/lessons",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"lessons"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "e1ecb8e0-68c4-491b-9bee-b04e061e74fc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Lesson",
+							"id": "53669098-4bb8-4ced-b90c-0a9f5d506f70",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "module_id",
+											"value": "3b8245a0-7441-41e9-ba4d-83c69604dc92",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Teste",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "teste",
+											"type": "text"
+										},
+										{
+											"key": "lesson_type",
+											"value": "video",
+											"type": "text"
+										},
+										{
+											"key": "video_url",
+											"value": "teste",
+											"type": "text"
+										},
+										{
+											"key": "draft",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "comments",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "availability",
+											"value": "immediate",
+											"type": "text"
+										},
+										{
+											"key": "thumbnail",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"filesNotInWorkingDirectory": [
+												"/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+											],
+											"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+										},
+										{
+											"key": "materials",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"filesNotInWorkingDirectory": [
+												"/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+											],
+											"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-11-16 160142.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/lessons",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"lessons"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "e1ecb8e0-68c4-491b-9bee-b04e061e74fc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "f94a96c4-cbf9-4e4b-888e-a7a9f806c223"
+				},
+				{
+					"name": "orderbumps",
+					"item": [
+						{
+							"name": "Create orderbump",
+							"id": "1cdd91be-c88a-44f4-952f-12c96d1382eb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "bump_id",
+											"value": "1a3cacf5-328a-40fa-a145-d78a48957cf7",
+											"type": "text"
+										},
+										{
+											"key": "product_link",
+											"value": "yNJXUjOs",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-06-29 081413.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/orderbump/:product_id",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										"orderbump",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "397f693a-16fe-4743-96f7-07a5ad2f7418"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List all Orderbumps",
+							"id": "2eac0082-1a48-48ee-b36c-3eb50ab07077",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/orderbumps",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"orderbumps"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "9464fdf3-7d7c-4cf6-8f62-80d4102219b1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "43032718-be75-497d-9192-82eaa0022be6"
+				},
+				{
+					"name": "Affiliates",
+					"item": [
+						{
+							"name": "Request affiliation",
+							"id": "326e7104-fd68-4112-b3ff-ded10c2c6321",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/affiliates/request",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"affiliates",
+										"request"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "9ec103ba-c55b-448d-a825-d1e648ff1013"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Control Affiliation",
+							"id": "8fd5dc9e-db4d-45e6-a155-69ddd4ffb679",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/:product_id/affiliates/:affiliation_id/actions/:action",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										":product_id",
+										"affiliates",
+										":affiliation_id",
+										"actions",
+										":action"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "9ec103ba-c55b-448d-a825-d1e648ff1013"
+										},
+										{
+											"key": "affiliation_id",
+											"value": "758fbbfe-ee22-4a6e-84b7-def8fe6fd7ac"
+										},
+										{
+											"key": "action",
+											"value": "accept",
+											"description": "'accept' | 'reject' | 'block' | 'unblock' | 'block-and-reject'"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Affiliations",
+							"id": "ecf45e8f-2923-4c21-9a5c-41af33ba7ae5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}products/affiliates/list?status=active&search",
+									"host": [
+										"{{SERVER_ROUTE}}products"
+									],
+									"path": [
+										"affiliates",
+										"list"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "active",
+											"description": "'active' | 'pending' | 'rejected' ou enviar vazio para buscar todos"
+										},
+										{
+											"key": "search",
+											"value": null,
+											"description": "Se nao tiver search, enviar como undefined"
+										},
+										{
+											"key": "products",
+											"value": "[\"9ec103ba-c55b-448d-a825-d1e648ff1013\"]",
+											"description": "Array de product_Id, vazio para todos",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "40737e40-684e-454d-a33e-8125a310e658"
+				},
+				{
+					"name": "Students",
+					"item": [
+						{
+							"name": "List Students",
+							"id": "6024d6a5-0c44-4c0c-9e34-0cb27dc7f78e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@me/products/:product_id/students?page=1&limit=15&search",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"me"
+									],
+									"path": [
+										"products",
+										":product_id",
+										"students"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "limit",
+											"value": "15",
+											"type": "text"
+										},
+										{
+											"key": "search",
+											"value": null,
+											"description": "nome, email ou telefone",
+											"type": "text"
+										}
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "be71d7a7-201e-4992-8941-09367d0946df"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "a284770e-c23b-448c-ae98-c283d2545e4a"
+				},
+				{
+					"name": "Create new Product",
+					"id": "14b6d228-4de7-441b-a6e2-2691356c7e9b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/teteu/Downloads/binance.jpeg"
+								},
+								{
+									"key": "title",
+									"value": "Produto de teste",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Testando produto sunize",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "d300e6dc-7f35-42fc-9555-777e86f78a37",
+									"type": "text"
+								},
+								{
+									"key": "product_type",
+									"value": "ONLINE_COURSE",
+									"type": "text"
+								},
+								{
+									"key": "producer_name",
+									"value": "Matheus Ferreira",
+									"type": "text"
+								},
+								{
+									"key": "product_website",
+									"value": "https://dashboard.sunize.com.br/produtos/novo-produto",
+									"type": "text"
+								},
+								{
+									"key": "support_email",
+									"value": "teste@gmail.coom",
+									"type": "text"
+								},
+								{
+									"key": "members_area",
+									"value": "INTERNAL",
+									"type": "text"
+								},
+								{
+									"key": "payment_type",
+									"value": "ONE_TIME",
+									"type": "text"
+								},
+								{
+									"key": "support_phone",
+									"value": "+5511953710163",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}products",
+							"host": [
+								"{{SERVER_ROUTE}}products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"id": "be4a4c06-f3d6-49ce-875b-fea810e21dab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Testando produto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}products/:product_id",
+							"host": [
+								"{{SERVER_ROUTE}}products"
+							],
+							"path": [
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "a55176ed-5f16-4f87-ac30-a98d588344a0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar produtos que participo",
+					"id": "c9a2e46e-a5ec-4bf9-aa84-13e3ea776cae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/products",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all products",
+					"id": "e0e759fa-c450-44f2-b57f-8169ce753106",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/products",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update product banner",
+					"id": "9dddba8f-abac-41db-a084-b188644087f6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-06-29 082405.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}products/:product_id/banner",
+							"host": [
+								"{{SERVER_ROUTE}}products"
+							],
+							"path": [
+								":product_id",
+								"banner"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "397f693a-16fe-4743-96f7-07a5ad2f7418"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get General settings",
+					"id": "7b12ccc4-9376-4b2f-affb-a9d18981eb0a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}products/:product_id/general-settings",
+							"host": [
+								"{{SERVER_ROUTE}}products"
+							],
+							"path": [
+								":product_id",
+								"general-settings"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "9ec103ba-c55b-448d-a825-d1e648ff1013"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update General settings Copy",
+					"id": "7ed5fdcf-2d03-4593-9904-5c8673c03dbc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"allow_affiliate\": true,\r\n  \"affiliate_commission\": 30,\r\n  \"affiliate_commission_orderbump\": 20,\r\n  \"affiliate_automatically_approve\": false,\r\n  \"affiliate_assignment\": \"LAST_CLICK\",\r\n  \"allow_marketplace\": true,\r\n  \"marketplace_support_email\": \"marketplace_support_email@gmail.com\",\r\n  \"marketplace_description\": \"Comprem meus produtos meus nobre\",\r\n  \"marketplace_checkout_link\": \"adb6d786-51c8-4f0e-bc88-af8bd70f3c5e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}products/:product_id/general-settings",
+							"host": [
+								"{{SERVER_ROUTE}}products"
+							],
+							"path": [
+								":product_id",
+								"general-settings"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "9ec103ba-c55b-448d-a825-d1e648ff1013"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "5f1d214b-65ff-4c4b-84f6-e88e071f2314"
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Listagem de notificacoes",
+					"id": "f6474c05-1d15-4c85-aebb-8826ed091207",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/notifications",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "49db9413-a0f1-4909-9a16-9187e52823cf",
+							"name": "Notificacoes com actions de backend",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@me/notifications",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"me"
+									],
+									"path": [
+										"notifications"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"hasError\": false,\n    \"data\": [\n        {\n            \"id\": \"e26a377c-570f-4b41-b74f-94ff9b5dedc4\",\n            \"title\": \"Convite para ser co-produtor\",\n            \"body\": \"Você foi convidado para ser co-produtor do produto Teste\",\n            \"actions\": [\n                {\n                    \"label\": \"Aceitar\",\n                    \"props\": {\n                        \"button_color\": \"success\"\n                    },\n                    \"action\": \"accept\"\n                },\n                {\n                    \"label\": \"Rejeitar\",\n                    \"props\": {\n                        \"button_color\": \"error\"\n                    },\n                    \"action\": \"reject\"\n                }\n            ],\n            \"is_read\": false,\n            \"important\": false, // se vai aparecer com bolinha de importante\n            \"icon\": \"info\", // tipos: 'info' | 'warning' | 'error' | 'success' | string // string = url de icon\n            \"createdAt\": \"2024-03-14T18:46:23.520Z\"\n        }\n    ]\n}"
+						},
+						{
+							"id": "3029634c-cba7-4653-b4d3-85ae5928e463",
+							"name": "Notificacao sem actions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@me/notifications",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"me"
+									],
+									"path": [
+										"notifications"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"hasError\": false,\n    \"data\": [\n        {\n            \"id\": \"e26a377c-570f-4b41-b74f-94ff9b5dedc4\",\n            \"title\": \"Venda realizada!\",\n            \"body\": \"Uma nova venda foi realizada, comissao R$ 23,33!\",\n            \"actions\": [],\n            \"is_read\": false,\n            \"important\": false, // se vai aparecer com bolinha de importante\n            \"icon\": \"info\", // tipos: 'info' | 'warning' | 'error' | 'success' | string // string = url de icon\n            \"createdAt\": \"2024-03-14T18:46:23.520Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Marcar not como lida",
+					"id": "29005206-47c4-4669-80d3-06c7825c9631",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/notifications/read/:notification_id",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"notifications",
+								"read",
+								":notification_id"
+							],
+							"variable": [
+								{
+									"key": "notification_id",
+									"value": "cf7b2bfc-3a30-4bf3-9b38-c2891e4d9589"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Marcar todas not como lida",
+					"id": "357bacab-8df7-4c97-822d-6933c6c55a5c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/notifications/read-all",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"notifications",
+								"read-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar notificacao",
+					"id": "65849cdc-0be7-4843-bd0d-c087f3136398",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/notifications/delete/:notification_id",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"notifications",
+								"delete",
+								":notification_id"
+							],
+							"variable": [
+								{
+									"key": "notification_id",
+									"value": "cf7b2bfc-3a30-4bf3-9b38-c2891e4d9589"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar todas notificacoes",
+					"id": "c79255d3-813a-48a4-8875-93b08479f0f3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/notifications/delete-all",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"notifications",
+								"delete-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Executar acoes",
+					"id": "71467706-006b-42fc-8e33-12dfb6e4d9e2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"reject\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/notifications/actions/:notification_id",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"notifications",
+								"actions",
+								":notification_id"
+							],
+							"variable": [
+								{
+									"key": "notification_id",
+									"value": "747b3d42-77c0-473f-86ba-a08b3fd2e99e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver configuracoes de notificacoes",
+					"id": "4bffbe20-5a13-416b-abef-b370c6b5eb46",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/notifications/preferences",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"notifications",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Salvar configuracoes de notificacoes Copy",
+					"id": "9fcd5f60-c2d7-4a31-b640-4deb2efdbc38",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MAIL_INDICATION_SALE\": true, // Vendas por indicação\r\n    \"MAIL_NEW_INDICATION\": true, // Indicação\r\n    \"MAIL_NEW_SALE_CONFIRM\": true // Confirmação de venda\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/notifications/preferences",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"notifications",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "dc06a6d7-b828-48f4-8961-1fdacdc69313"
+		},
+		{
+			"name": "Withdraw",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Get Withdraw control",
+							"id": "f4a1d381-d1c0-4faf-b41a-14e93b8aabd6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@admin/withdraw/list/:type",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"admin"
+									],
+									"path": [
+										"withdraw",
+										"list",
+										":type"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "items_per_page",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "type",
+											"value": "pending"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "approve withdraw",
+							"id": "1e5bd89d-ac8d-479f-82a1-bb73ecbf4118",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@admin/withdraw/approve/:withdraw_id",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"admin"
+									],
+									"path": [
+										"withdraw",
+										"approve",
+										":withdraw_id"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "items_per_page",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "withdraw_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reject withdraw",
+							"id": "98ab594a-28a3-4241-bc90-1d31fca96be0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@admin/withdraw/approve/:withdraw_id",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"admin"
+									],
+									"path": [
+										"withdraw",
+										"approve",
+										":withdraw_id"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "items_per_page",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "withdraw_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "896d660c-988b-4463-9002-8bbba9cf6503"
+				},
+				{
+					"name": "Get withdraw settings",
+					"id": "73970766-4a15-46a2-8c02-8ae2261ffd02",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImEtMlZSZHBUT050UlpCa1EzeHQxMyJ9.eyJpc3MiOiJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NGNiOTNjNDcyMDdlMDFmMmQ5MzFkOTQiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuc3VuaXplLmNvbS5ici8iLCJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2OTU5Mjk5MTcsImV4cCI6MTY5NjAxNjMxNywiYXpwIjoiNDlDR1hoYTJuMmZnZ0sydlN6ZjRLYnJ6R2VzYkZZZHAiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIn0.ID-sdkEXoECPYwcMRrO-hXSjgT24wmKBOab94APYwBRStGU8h76Bod6NRH7240xmTBK5PSAYLp3GccqRwL8tcoPD2GIFrUgUOU2-M8nDEDDULkF3TTQNngWRqg-HuhKAhG138WLGrHNDDqGAjww_Qjq1Cx-d98k_eTI_08FZi6UIg6TaF2Dq30MTz9ICZJ9QXD9w-TQioTCrK1alp2ORpcMzHXUGiBegrvCqXDFk1DFuFquEBWsX7MWAq9ulFAGCXhzvERbr_vw0Bc8TofaiJAy6qcS1VmYXPAVUVMuuGbLAb-xumOEL2kXU__zY0O0Ea51CWLO-D-Aby6g7MYxwow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"daily\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/withdraw",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "421aeb32-d28e-4968-9395-87d9060c2437"
+		},
+		{
+			"name": "Others",
+			"item": [
+				{
+					"name": "https://api.magnattamenu.com.br/transactions/notification?topic=payment&id=63487598919",
+					"id": "5f07adbf-7309-4d26-a7fb-301cf1a223f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.magnattamenu.com.br/transactions/notification?topic=payment&id=63487598919",
+							"protocol": "https",
+							"host": [
+								"api",
+								"magnattamenu",
+								"com",
+								"br"
+							],
+							"path": [
+								"transactions",
+								"notification"
+							],
+							"query": [
+								{
+									"key": "topic",
+									"value": "payment"
+								},
+								{
+									"key": "id",
+									"value": "63487598919"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mailer",
+					"id": "12b7beb0-9bef-4fc1-b311-f31274ffd904",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "_D82JD92SC81292ME1129CDAS92131NVCS8V_",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\": \"matheus.fdev03@gmail.com\",\r\n    \"subject\": \"Teste\",\r\n    \"template\": \"recovery-password\",\r\n    \"templateData\": {\r\n        \"name\": \"Matheus\",\r\n        \"url\": \"TESTE\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}mailer",
+							"host": [
+								"{{SERVER_ROUTE}}mailer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "e8f94751-9f30-4ca7-a2d2-5f99f3bd6a03"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add User Indicated",
+					"id": "de676bf8-8b76-4835-8374-8c778d6c46b0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"invite_code\": \"be8a5ab2-cfcb-4fb1-aa36-b9483fb462a8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/vinculate/invite-code",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"vinculate",
+								"invite-code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users Indicated",
+					"id": "2991b4e9-f375-4d8d-9350-9fe70e025f0f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User data",
+					"id": "7cc8cceb-4bb1-4e87-92d1-5fcc70210b5c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{SERVER_ROUTE}}@me/document",
+					"id": "892d7a44-8c47-48c7-8c9e-408520dc01fa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImEtMlZSZHBUT050UlpCa1EzeHQxMyJ9.eyJpc3MiOiJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NGNiOTNjNDcyMDdlMDFmMmQ5MzFkOTQiLCJhdWQiOlsiaHR0cHM6Ly9hcGkuc3VuaXplLmNvbS5ici8iLCJodHRwczovL2Rldi11MXdib2hrcWM1ZWc0M3N3LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2OTQ4MTQzMDksImV4cCI6MTY5NDkwMDcwOSwiYXpwIjoiNDlDR1hoYTJuMmZnZ0sydlN6ZjRLYnJ6R2VzYkZZZHAiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIn0.QaF1AtH1jF3wqyFSDbUq_v2SacTdVlwEa3Bwro_n1zXZPAKBVHMP74BArJIJpuHKrNo2mj2suQzwrZNDiMdwCdA86XpAsrNC8UWKCgtKj9yWhHHsUU93BtHwz23X6KyXlpUjw2TdRT8JaYmaMKV17YCNrTxxW75R-beYtiQknpVRxzlMVtd8HLRjiiN_xe_zCEitUIsD2f7lZqv-UX70iQY9HupXCb1cx-Fn2Z41Tjr87muoLNCqDJcp_KD1VOGOOiWerEVDY5sL-y3-Dc7hDO3UnCmbBYt-GpWNoDU7XF-vHPMs0foN4TlzWeMg4NXRl_7qdnEmVmMPKPjt01rt7g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "document",
+									"type": "file",
+									"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-06-29 082405.png"
+								},
+								{
+									"key": "document",
+									"type": "file",
+									"src": "/C:/Users/teteu/OneDrive/Imagens/Capturas de tela/Captura de tela 2023-06-29 083346.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/document",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{SERVER_ROUTE}}products/classes",
+					"id": "b1601a3a-98c1-492c-abbf-6035eeb50a5c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}products/classes",
+							"host": [
+								"{{SERVER_ROUTE}}products"
+							],
+							"path": [
+								"classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar celular",
+					"id": "098e2ac3-5d0c-415d-a066-2b759c80de44",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"method\": \"sms\",\r\n    \"phone\": \"+5511953710163\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/update/phone",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"update",
+								"phone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar celular Verificar",
+					"id": "7686bf81-023f-40f6-9fa9-d7ea700f84d2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"892030\",\r\n    \"phone\": \"+5511953710163\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/update/phone/verify",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"update",
+								"phone",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar imagem do perfil",
+					"id": "6feeea1f-f4ff-4bbd-abf2-f2c1f58c4ae3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/teteu/Downloads/EBE082C0-0ECD-4E90-BDB9-155E112C2F29.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/image",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover imagem de usuario",
+					"id": "42dac29c-123b-49f9-b993-5afb7e8d6bdd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/image",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "da30d3c6-09be-4d31-ad51-b4e46090c6ee"
+		},
+		{
+			"name": "Rewards",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "31e8cc13-59d7-4d23-8cb5-9460bc7304dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}rewards",
+							"host": [
+								"{{SERVER_ROUTE}}rewards"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "c0e1c2d2-2c7f-4c0c-817d-7448931284ca"
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "Get Purchases",
+					"id": "5fa520dd-6916-4ae8-925b-700878919d5f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/purchases/products",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"purchases",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product Lessons",
+					"id": "0e2946ff-d0ce-4d16-adc5-4bd644846b12",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@me/purchases/products/e1ecb8e0-68c4-491b-9bee-b04e061e74fc/lessons",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"me"
+							],
+							"path": [
+								"purchases",
+								"products",
+								"e1ecb8e0-68c4-491b-9bee-b04e061e74fc",
+								"lessons"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "4a9284e9-8998-487d-a7b4-ae3b7fa51f54"
+		},
+		{
+			"name": "Marketplace",
+			"item": [
+				{
+					"name": "List products",
+					"id": "54048964-b9b6-4123-892f-d03a155756b4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}marketplace/products?page=1&limit=10&order_by=MOST_RATING",
+							"host": [
+								"{{SERVER_ROUTE}}marketplace"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Limite de 10 a 20 items por pagina"
+								},
+								{
+									"key": "category_id",
+									"value": null,
+									"description": "Vazio = todas categorias",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "MOST_RATING",
+									"description": "'MOST_RECENT' | 'MOST_SALES' | 'MOST_RATING'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get marketplace product",
+					"id": "a32f1cc1-fa17-4e23-b6e3-f6aa91594cba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}marketplace/products/:product_id",
+							"host": [
+								"{{SERVER_ROUTE}}marketplace"
+							],
+							"path": [
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "be71d7a7-201e-4992-8941-09367d0946df"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "83326c0e-9260-4270-bb1e-bc1ffefe6b8c"
+		},
+		{
+			"name": "Members",
+			"item": [
+				{
+					"name": "Actions",
+					"item": [
+						{
+							"name": "Ratings",
+							"item": [
+								{
+									"name": "Create or delete rating",
+									"id": "26f3cb81-baa9-405a-bd76-e1c5a557a90b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    // insira um numero inteiro de 0 a 5, porem 0 = sem avaliacao\r\n    \"rating\": 5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/ratings",
+											"auth": {
+												"user": "{{SERVER_ROUTE}}"
+											},
+											"host": [
+												"members"
+											],
+											"path": [
+												"lessons",
+												":lesson_id",
+												"ratings"
+											],
+											"variable": [
+												{
+													"key": "lesson_id",
+													"value": "2b1f4acd-5b05-4ec0-9906-12ecf10d80e5"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "59f4d998-e1c6-4092-b3f0-c213894e50c9"
+						},
+						{
+							"name": "Comments",
+							"item": [
+								{
+									"name": "Create Comment",
+									"id": "4d18c5c5-df8c-48de-8a86-846ac0764110",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\": \"teste\",\r\n    // id do comentario pra responder\r\n    \"parent_id\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/comments",
+											"auth": {
+												"user": "{{SERVER_ROUTE}}"
+											},
+											"host": [
+												"members"
+											],
+											"path": [
+												"lessons",
+												":lesson_id",
+												"comments"
+											],
+											"variable": [
+												{
+													"key": "lesson_id",
+													"value": "ac2c0c91-6048-4eb6-88d2-5102d8761fcb"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Like comment",
+									"id": "394a2996-138f-4fe6-8983-162e26381300",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"like\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/comments/:comment_id/like",
+											"auth": {
+												"user": "{{SERVER_ROUTE}}"
+											},
+											"host": [
+												"members"
+											],
+											"path": [
+												"lessons",
+												":lesson_id",
+												"comments",
+												":comment_id",
+												"like"
+											],
+											"variable": [
+												{
+													"key": "lesson_id",
+													"value": "ac2c0c91-6048-4eb6-88d2-5102d8761fcb"
+												},
+												{
+													"key": "comment_id",
+													"value": "edd3dd11-c2da-42c0-ab8b-d2f7d4c98fdf"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete comment",
+									"id": "2a0b561f-3dc3-472e-b759-b9ed9261820c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"like\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/comments/:comment_id",
+											"auth": {
+												"user": "{{SERVER_ROUTE}}"
+											},
+											"host": [
+												"members"
+											],
+											"path": [
+												"lessons",
+												":lesson_id",
+												"comments",
+												":comment_id"
+											],
+											"variable": [
+												{
+													"key": "lesson_id",
+													"value": "ac2c0c91-6048-4eb6-88d2-5102d8761fcb"
+												},
+												{
+													"key": "comment_id",
+													"value": "edd3dd11-c2da-42c0-ab8b-d2f7d4c98fdf"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Comment",
+									"id": "677ed863-73d1-49c9-8a6b-47066f7adbe5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\": \"teste editado\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/comments/:comment_id",
+											"auth": {
+												"user": "{{SERVER_ROUTE}}"
+											},
+											"host": [
+												"members"
+											],
+											"path": [
+												"lessons",
+												":lesson_id",
+												"comments",
+												":comment_id"
+											],
+											"variable": [
+												{
+													"key": "lesson_id",
+													"value": "ac2c0c91-6048-4eb6-88d2-5102d8761fcb"
+												},
+												{
+													"key": "comment_id",
+													"value": "d199b470-1bf9-4229-9ab0-cf4d84a3cc97"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Comments",
+									"id": "e1eaf644-019b-4ead-bc65-49260d4539bc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/comments?page=1&limit=10",
+											"auth": {
+												"user": "{{SERVER_ROUTE}}"
+											},
+											"host": [
+												"members"
+											],
+											"path": [
+												"lessons",
+												":lesson_id",
+												"comments"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												}
+											],
+											"variable": [
+												{
+													"key": "lesson_id",
+													"value": "ac2c0c91-6048-4eb6-88d2-5102d8761fcb"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Comments with parentId",
+									"id": "03ea96ee-aede-4d40-acf4-79d2b95f4018",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/comments/:parent_id?page=1&limit=10",
+											"auth": {
+												"user": "{{SERVER_ROUTE}}"
+											},
+											"host": [
+												"members"
+											],
+											"path": [
+												"lessons",
+												":lesson_id",
+												"comments",
+												":parent_id"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												}
+											],
+											"variable": [
+												{
+													"key": "lesson_id",
+													"value": "ac2c0c91-6048-4eb6-88d2-5102d8761fcb"
+												},
+												{
+													"key": "parent_id",
+													"value": "6084aa62-c6f7-48dd-9f90-b82f2f2a8160",
+													"description": "id do comentario"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Block user comment",
+									"id": "7f4d08fa-45f9-4773-9d2e-61f91b9db4b2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"block_user_id\": \"20e12490-283b-406d-ab9b-15646509ef0c\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/comments/block-user/:action",
+											"auth": {
+												"user": "{{SERVER_ROUTE}}"
+											},
+											"host": [
+												"members"
+											],
+											"path": [
+												"lessons",
+												":lesson_id",
+												"comments",
+												"block-user",
+												":action"
+											],
+											"variable": [
+												{
+													"key": "lesson_id",
+													"value": ""
+												},
+												{
+													"key": "action",
+													"value": "unblock",
+													"description": "block || unblock"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "dd7e7a5a-3697-4603-a95d-184e2174e30e"
+						}
+					],
+					"id": "4fd04dcc-0182-459c-a554-9c14d77072f7"
+				},
+				{
+					"name": "Modules",
+					"item": [
+						{
+							"name": "Get all modules",
+							"id": "3f7ad1ae-0ba8-4754-bc9a-b867d6b4c6f2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@members/products/:product_id/modules",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"members"
+									],
+									"path": [
+										"products",
+										":product_id",
+										"modules"
+									],
+									"query": [
+										{
+											"key": "lessons",
+											"value": "true",
+											"description": "Caso queira retornar a lista de aulas tambem",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get module by id",
+							"id": "600e79f3-2823-4249-8a1e-9b59cc07c890",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@members/products/:product_id/modules/:module_id?lessons=true",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"members"
+									],
+									"path": [
+										"products",
+										":product_id",
+										"modules",
+										":module_id"
+									],
+									"query": [
+										{
+											"key": "lessons",
+											"value": "true",
+											"description": "Caso queira retornar a lista de aulas tambem"
+										}
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "9ec103ba-c55b-448d-a825-d1e648ff1013",
+											"description": "product_id ou short_id"
+										},
+										{
+											"key": "module_id",
+											"value": "30954771-17f5-4afe-8ec9-7fca8dfa17ca"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "885e1ce2-5da3-4128-b667-c536526e11d7"
+				},
+				{
+					"name": "Lessons",
+					"item": [
+						{
+							"name": "Get lesson by id",
+							"id": "42b8186b-6a7a-4019-8718-8523f3843b94",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"members"
+									],
+									"path": [
+										"lessons",
+										":lesson_id"
+									],
+									"variable": [
+										{
+											"key": "lesson_id",
+											"value": "2b1f4acd-5b05-4ec0-9906-12ecf10d80e5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save user lesson progress",
+							"id": "e35a66f5-f001-4e18-bf9c-c250cb1bc44e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"lesson_completed\": true,\r\n  \"lesson_id\": \"2b1f4acd-5b05-4ec0-9906-12ecf10d80e5\",\r\n  \"lesson_timestamp\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SERVER_ROUTE}}@members/lessons/:lesson_id/progress",
+									"auth": {
+										"user": "{{SERVER_ROUTE}}"
+									},
+									"host": [
+										"members"
+									],
+									"path": [
+										"lessons",
+										":lesson_id",
+										"progress"
+									],
+									"variable": [
+										{
+											"key": "lesson_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "65d5af89-0e08-466c-8bb5-98136b91e5b8"
+				},
+				{
+					"name": "Get product",
+					"id": "8c3c1563-5e68-443e-bf52-da606956df56",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_ROUTE}}@members/products/:product_id",
+							"auth": {
+								"user": "{{SERVER_ROUTE}}"
+							},
+							"host": [
+								"members"
+							],
+							"path": [
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "9ec103ba-c55b-448d-a825-d1e648ff1013"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "25aa6c25-e1ed-44c5-b35c-88890f7b7cc6"
+		},
+		{
+			"name": "Faker Notifications",
+			"id": "f2751d07-463c-4b6b-bf79-24c9108d7ddb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"min_interval\": 120,\r\n    \"max_interval\": 750,\r\n    \"count\": 2500,\r\n    \"users\": [\r\n        // \"76a3eba2-90d0-4a7b-83c0-0a70c8f159d1\", Sofia\r\n        // \"e1f602b4-46dc-441e-8add-fd51ba201ce0\", Eu\r\n        \"325d21fd-4280-4baf-b2e3-a79865737ffe\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER_ROUTE}}@me/notifications/fake-notification/",
+					"auth": {
+						"user": "{{SERVER_ROUTE}}"
+					},
+					"host": [
+						"me"
+					],
+					"path": [
+						"notifications",
+						"fake-notification",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Secret case",
+			"id": "c4be9376-3255-4b6a-8ddb-cad91e8e69b9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\": \"fe473eca-a61f-4493-9948-a87ff38850fe\",\r\n    \"payment_method\": \"PIX\",\r\n    \"use_two_cards\": false,\r\n    \"product_link\": \"iYMZbOJM\",\r\n    \"product_value\": 49.9,\r\n    \"card_data\": [],\r\n    \"payer\": {\r\n        \"name\": \"Sunize Developer Teste\",\r\n        \"email\": \"matheus@sunize.com.br\",\r\n        \"phone\": \"11953710163\",\r\n        \"birth_date\": \"\",\r\n        \"document\": \"50349923884\",\r\n        \"visitor_id\": \"cc572cf5-8006-475e-bd14-6c917dfc503b\",\r\n        \"address\": {\r\n            \"street\": \"\",\r\n            \"number\": \"\",\r\n            \"complement\": \"\",\r\n            \"neighborhood\": \"\",\r\n            \"city\": \"\",\r\n            \"state\": \"\",\r\n            \"cep\": \"\"\r\n        }\r\n    },\r\n    \"additional_products\": [\r\n        {\r\n            \"product_id\": \"a20a371d-7823-4324-8f15-c94d9ea6b319\",\r\n            \"unit_price\": 12.9\r\n        },\r\n        {\r\n            \"product_id\": \"319cbc48-4aec-4a70-b734-45ec928a3139\",\r\n            \"unit_price\": 17.9\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER_ROUTE}}@admin/secret/withdraw/list?secret={{ADMIN_SECRET_CODE}}",
+					"auth": {
+						"user": "{{SERVER_ROUTE}}"
+					},
+					"host": [
+						"admin"
+					],
+					"path": [
+						"secret",
+						"withdraw",
+						"list"
+					],
+					"query": [
+						{
+							"key": "secret",
+							"value": "{{ADMIN_SECRET_CODE}}",
+							"type": "text"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "269de9f6-8f21-4514-aaeb-07b145e2d0d1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "d0a9e681-73bd-4da7-b739-1dab879473ac",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{USER_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4f5848ce-d878-4c56-b9f7-1a5f05bb819f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "602d56cd-8eaf-4190-889a-10851fa6e010",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
