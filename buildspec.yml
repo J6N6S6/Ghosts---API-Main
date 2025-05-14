@@ -3,34 +3,42 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 20  # Alinhado com a versão do Node.js no seu package.json (20.9.0)
     commands:
-      - echo "Instalando Docker..."
-      - apt-get update -y && apt-get install -y docker.io
+      - echo "Instalando Docker e dependências do sistema..."
+      - apt-get update -y
+      - apt-get install -y docker.io  # Instala o Docker para builds de imagem
+      - npm install -g @nestjs/cli    # Instala o NestJS CLI globalmente
 
   pre_build:
     commands:
-      - echo "Logando no ECR..."
+      - echo "Logando no Amazon ECR..."
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-      - echo "Instalando dependências..."
-      - npm install -g prisma
-      - npm install
-      - npx prisma generate
-      - npx prisma migrate deploy
+
+      - echo "Instalando dependências do projeto..."
+      - npm install --legacy-peer-deps  # Resolve possíveis conflitos de peerDependencies
+
+      - echo "Buildando o projeto NestJS..."
+      - npm run build  # Executa o comando "nest build" definido no package.json
+
+      - echo "Instalando NestJS CLI..."
+      - npm install -g @nestjs/cli
+
 
   build:
     commands:
-      - echo "Buildando imagem Docker..."
+      - echo "Buildando a imagem Docker..."
       - docker build -t $ECR_REPO_URI:$IMAGE_TAG .
       - docker tag $ECR_REPO_URI:$IMAGE_TAG $ECR_REPO_URI:latest
 
   post_build:
     commands:
-      - echo "Enviando imagem para ECR..."
+      - echo "Enviando imagem para o ECR..."
       - docker push $ECR_REPO_URI:$IMAGE_TAG
       - docker push $ECR_REPO_URI:latest
 
 cache:
   paths:
     - node_modules/**/*
-    - prisma/.env
+    - dist/**/*       # Cacheia a pasta de build do NestJS
+    - .npm/**/*       # Cacheia o cache do npm
