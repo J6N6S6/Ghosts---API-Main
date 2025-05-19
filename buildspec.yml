@@ -6,9 +6,10 @@ phases:
       nodejs: 20
     commands:
       - echo "Instalando Docker..."
-      - sudo dnf install -y docker  # Instala o Docker via dnf
-      - sudo systemctl start docker
-      - sudo usermod -a -G docker $USER  # Adiciona o usuário ao grupo docker
+      - sudo dnf install -y docker
+      - sudo dockerd &  # Inicia o Docker em background sem systemd
+      - sleep 10  # Espera o Docker inicializar
+      - docker --version  # Verifica se o Docker está funcionando
       - npm install -g @nestjs/cli
 
   pre_build:
