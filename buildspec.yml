@@ -6,7 +6,9 @@ phases:
       nodejs: 20
     commands:
       - echo "Instalando Docker..."
-      - apt-get update -y && apt-get install -y docker.io
+      - yum update -y  # Substitua apt-get por yum
+      - amazon-linux-extras install docker -y  # Instalação específica para Amazon Linux
+      - service docker start
       - npm install -g @nestjs/cli
 
   pre_build:
