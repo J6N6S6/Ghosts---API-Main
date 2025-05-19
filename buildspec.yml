@@ -5,20 +5,16 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
-      - echo "Instalando dependências do sistema..."
-      - apt-get update -y
-      - apt-get install -y docker.io
-      - npm install -g @nestjs/cli  # Instalação única do Nest CLI
+      - echo "Instalando Docker..."
+      - apt-get update -y && apt-get install -y docker.io
+      - npm install -g @nestjs/cli
 
   pre_build:
     commands:
-      - echo "Autenticando no Amazon ECR..."
+      - echo "Autenticando no ECR..."
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-
-      - echo "Instalando dependências do projeto..."
+      - echo "Instalando dependências..."
       - npm install --legacy-peer-deps
-
-      - echo "Buildando aplicação NestJS..."
       - npm run build
 
   build:
@@ -37,4 +33,3 @@ cache:
   paths:
     - node_modules/**/*
     - dist/**/*
-    - .npm/**/*
