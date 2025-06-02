@@ -1,5 +1,7 @@
+# --------------------------------------------------
 # Fase de Build (para compilar o código)
-FROM node:20-alpine AS builder
+# --------------------------------------------------
+FROM node:20-bullseye-slim AS builder
 WORKDIR /usr/app
 
 # Copia apenas os arquivos necessários para instalar dependências
@@ -12,13 +14,13 @@ RUN npm ci --legacy-peer-deps
 COPY . .
 RUN npm run build
 
-# Copia o arquivo de configuração do Firebase
-COPY firebase-adminsdk.json /app/firebase-adminsdk.json
+# Copia o arquivo de configuração do Firebase (ajuste o caminho conforme a sua estrutura)
+COPY firebase-adminsdk.json /usr/app/firebase-adminsdk.json
 
-# --------------------------------------------
-
+# --------------------------------------------------
 # Fase de Produção (imagem final minimalista)
-FROM node:20-alpine
+# --------------------------------------------------
+FROM node:20-bullseye-slim
 WORKDIR /usr/app
 
 # Define variáveis de ambiente para produção
@@ -31,9 +33,13 @@ RUN npm ci --legacy-peer-deps --omit=dev
 # Copia os arquivos compilados da fase de build
 COPY --from=builder /usr/app/dist ./dist
 
+# Copia também o JSON de credenciais do Firebase para o local esperado
+COPY --from=builder /usr/app/firebase-adminsdk.json ./firebase-adminsdk.json
+
 # Cria um usuário não-root e ajusta permissões
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 RUN chown -R appuser:appgroup /usr/app
+
 USER appuser
 
 # Expõe a porta e define o comando de inicialização
