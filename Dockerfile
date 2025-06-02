@@ -12,6 +12,9 @@ RUN npm ci --legacy-peer-deps
 COPY . .
 RUN npm run build
 
+# Copia o arquivo de configuração do Firebase
+COPY firebase-adminsdk.json /app/firebase-adminsdk.json
+
 # --------------------------------------------
 
 # Fase de Produção (imagem final minimalista)
