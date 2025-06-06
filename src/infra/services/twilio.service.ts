@@ -1,4 +1,3 @@
-// src/infra/services/twilio.service.ts
 import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
@@ -11,42 +10,42 @@ export class TwilioService {
     );
   }
 
-  // antigo sendSms stub
+  /** Envia SMS — stub */
   async sendSms(to: string, body: string): Promise<void> {
     this.logger.debug(`[MOCK sendSms] to=${to} body="${body}"`);
     return Promise.resolve();
   }
 
-  // se você usa WhatsApp
+  /** Envia WhatsApp — stub */
   async sendWhatsApp(to: string, body: string): Promise<void> {
     this.logger.debug(`[MOCK sendWhatsApp] to=${to} body="${body}"`);
     return Promise.resolve();
   }
 
-  // --- NOVOS STUBS para build passar ---
   /**
-   * Inicia verificação de telefone (sendVerifyCode)
+   * Inicia verificação de telefone
+   * @param channel agora aceita 'sms' ou 'whatsapp' conforme seu código
+   * @returns sid + status
    */
   async sendVerifyCode(
     phone: string,
-    channel: 'sms' | 'call',
-  ): Promise<{ sid: string }> {
+    channel: 'sms' | 'whatsapp',
+  ): Promise<{ sid: string; status: 'pending' }> {
     this.logger.debug(
       `[MOCK sendVerifyCode] phone=${phone} channel=${channel}`,
     );
-    // retorna um objeto compatível com o original (apenas SID fake)
-    return Promise.resolve({ sid: 'MOCK-SID-1234' });
+    return Promise.resolve({ sid: 'MOCK-SID-1234', status: 'pending' });
   }
 
   /**
-   * Checa código de verificação (checkVerifyCode)
+   * Checa código de verificação
+   * @returns status + verified boolean para seu if (!verified)
    */
   async checkVerifyCode(
     phone: string,
     code: string,
-  ): Promise<{ status: 'approved' | 'pending' }> {
+  ): Promise<{ status: 'approved' | 'pending'; verified: boolean }> {
     this.logger.debug(`[MOCK checkVerifyCode] phone=${phone} code=${code}`);
-    // simula sempre aprovado para evitar lógica de erro
-    return Promise.resolve({ status: 'approved' });
+    return Promise.resolve({ status: 'approved', verified: true });
   }
 }
