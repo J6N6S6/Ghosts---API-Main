@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { JwtModule } from '@nestjs/jwt';
 import { S3Module } from 'nestjs-s3';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { TypeOrmDbModule } from './repositories/typeorm/module/typeorm.module';
 
@@ -124,7 +125,6 @@ import {
   TypeormUserSecureReserveRepository,
   TypeormWarnRepository,
 } from '@/infra/repositories/typeorm';
-import { JwtModule } from '@nestjs/jwt';
 import { TwilioService } from './services/twilio.service';
 import { VimeoModule } from './apps/vimeo/vimeo.module';
 import { IESessionRepository } from '@/domain/repositories/session.reposity';
@@ -136,29 +136,36 @@ import { TypeormProductsContentRepository } from './repositories/typeorm/typeorm
 import { TypeormUserInegrationsRepository } from './repositories/typeorm/typeorm_user_integrations.repository';
 import { UserIntegrationsRepository } from '@/domain/repositories/user_integrations.repository';
 import { UserIntegrationsEntity } from './database/entities/user_integrations.entity';
+//import { inject, use } from 'dd-trace';
 
 @Module({
   imports: [
-    ConfigModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get<string>('JWT_SECRET'),
+        signOptions: {
+          expiresIn: configService.get<string>('JWT_EXPIRES_IN') || '1d',
+        },
+      }),
+    }),
     S3Module.forRootAsync({
-      useFactory: (configService) => ({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
         config: {
           credentials: {
-            accessKeyId: configService.get('AWS_ACCESS_KEY_ID'),
-            secretAccessKey: configService.get('AWS_SECRET_ACCESS_KEY'),
+            accessKeyId: configService.get<string>('AWS_ACCESS_KEY_ID'),
+            secretAccessKey: configService.get<string>('AWS_SECRET_ACCESS_KEY'),
           },
           region: configService.get('AWS_REGION'),
           forcePathStyle: true,
           signatureVersion: 'v4',
         },
-      }),
-      inject: [ConfigService],
-    }),
-
-    JwtModule.registerAsync({
-      useFactory: () => ({
-        secret: process.env.JWT_SECRET,
-        signOptions: { expiresIn: process.env.JWT_EXPIRES_IN || '1d' },
       }),
     }),
     VimeoModule,
