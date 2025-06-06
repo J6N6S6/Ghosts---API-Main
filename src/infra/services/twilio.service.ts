@@ -1,65 +1,32 @@
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import * as TwilioSDK from 'twilio';
+// src/infra/services/twilio.service.ts
+import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class TwilioService {
-  private client: TwilioSDK.Twilio;
-  private verifySid: string;
+  private readonly logger = new Logger(TwilioService.name);
 
-  constructor(private readonly configService: ConfigService) {
-    const accountSid = this.configService.get<string>('twilio.accountSid');
-    const authToken = this.configService.get<string>('twilio.authToken');
-
-    this.verifySid = this.configService.get<string>('twilio.verifyServiceSid');
-    this.client = TwilioSDK(accountSid, authToken);
+  constructor() {
+    this.logger.log(
+      '[TwilioService] Modo MOCK ativo — nenhum SMS será enviado'
+    );
   }
 
-  async sendVerifyCode(to: string, channel: 'sms' | 'whatsapp') {
-    try {
-      const msg = await this.client.verify.v2
-        .services(this.verifySid)
-        .verifications.create({
-          to,
-          channel,
-        });
-
-      return {
-        status: msg.status,
-        to: msg.to,
-        channel: msg.channel,
-      };
-    } catch (error) {
-      console.log(error);
-      return {
-        status: 'error',
-        to,
-        channel,
-      };
-    }
+  /**
+   * Envia SMS — agora apenas um stub.
+   * @param to número de destino
+   * @param body texto da mensagem
+   */
+  async sendSms(to: string, body: string): Promise<void> {
+    this.logger.debug(`[MOCK sendSms] to=${to} body="${body}"`);
+    return Promise.resolve();
   }
 
-  async checkVerifyCode(to: string, code: string) {
-    try {
-      const verify = await this.client.verify.v2
-        .services(this.verifySid)
-        .verificationChecks.create({
-          to,
-          code,
-        });
-
-      return {
-        status: verify.status,
-        to: verify.to,
-        verified: verify.valid,
-      };
-    } catch (error) {
-      console.log(error);
-      return {
-        status: 'error',
-        to,
-        verified: false,
-      };
-    }
+  /**
+   * Se você tiver outros métodos (e.g. sendWhatsApp),
+   * transforme-os da mesma forma:
+   */
+  async sendWhatsApp(to: string, body: string): Promise<void> {
+    this.logger.debug(`[MOCK sendWhatsApp] to=${to} body="${body}"`);
+    return Promise.resolve();
   }
 }
