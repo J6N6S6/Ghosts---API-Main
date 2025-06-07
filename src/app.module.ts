@@ -22,8 +22,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         synchronize: false,
         retryAttempts: 5,
         retryDelay: 3000,
-        ssl: {
-          rejectUnauthorized: false,
+        ssl: true,
+        extra: {
+          ssl: {
+            rejectUnauthorized: false,
+          },
         },
       }),
     }),
