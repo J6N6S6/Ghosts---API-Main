@@ -3,17 +3,14 @@ import { UserBankingTransactionsRepository } from '@/domain/repositories';
 import { UserBankingSecureReserveModel } from '@/domain/models/user_secure_reserve.model';
 import { UserBankingTransaction } from '@/domain/models/user_banking_transaction.model';
 import { Injectable } from '@nestjs/common';
-import { Process, Processor } from '@nestjs/bull';
 
 @Injectable()
-@Processor('process_balance_regularization')
 export class ProcessBalanceRegularizationCase {
   constructor(
     private readonly userSecureReserveRepository: IEUserSecureReserveRepository,
     private readonly userBankingTransactionsRepository: UserBankingTransactionsRepository,
   ) {}
 
-  @Process()
   async process(job: any) {
     const transaction = job.data;
     const user_id = transaction.user_id;

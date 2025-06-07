@@ -1,5 +1,4 @@
 // process-secure-reserve-transaction.processor.ts
-import { Process, Processor } from '@nestjs/bull';
 import { Job } from 'bull';
 import { IEUserSecureReserveRepository } from '@/domain/repositories/user_secure_reserve.repository';
 import { UserBankingTransactionsRepository } from '@/domain/repositories';
@@ -8,14 +7,12 @@ import { UserBankingTransaction } from '@/domain/models/user_banking_transaction
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-@Processor('process_secure_reserve_transaction')
 export class ProcessSecureReserveTransaction {
   constructor(
     private readonly userSecureReserveRepository: IEUserSecureReserveRepository,
     private readonly userBankingTransactionsRepository: UserBankingTransactionsRepository,
   ) {}
 
-  @Process()
   async process(job: Job<any>) {
     const transaction = job.data;
     const user_id = transaction.user_id;

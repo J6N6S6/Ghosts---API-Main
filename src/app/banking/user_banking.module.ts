@@ -1,4 +1,6 @@
 import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
+import { BalanceRegularizationProcessor } from './queue/balance_regularization.processor';
+import { ProcessBalanceRegularizationProcessor } from './queue/process_balance_regularization.processor';
 import { InfraModule } from '@/infra/infra.module';
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
@@ -69,6 +71,8 @@ import { ProcessBalanceRegularizationCase } from './useCases/process-balance-reg
     AdminWithdrawController,
   ],
   providers: [
+    BalanceRegularizationProcessor,
+    ProcessBalanceRegularizationProcessor,
     CreateBankAccountCase,
     GetAccountBalanceCase,
     GetBankAccountCase,
