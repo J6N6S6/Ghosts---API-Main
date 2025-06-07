@@ -8,7 +8,7 @@ export class ProcessBalanceRegularizationProcessor {
     private readonly processBalanceRegCase: ProcessBalanceRegularizationCase,
   ) {}
 
-  @Process()
+  @Process('process_balance_regularization')
   async handle(job: Job<any>) {
     try {
       await this.processBalanceRegCase.process(job);

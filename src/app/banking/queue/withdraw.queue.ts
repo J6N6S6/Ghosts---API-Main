@@ -9,7 +9,7 @@ import { RequestWithdrawDTO } from '../useCases/request-withdraw/request_withdra
 export class WithdrawalQueueService {
   constructor(private readonly processWithdrawCase: ProcessWithdrawCase) {}
 
-  @Process()
+  @Process('withdraw_request')
   async processQueue(job: Job<RequestWithdrawDTO>) {
     let progress = 0;
     for (let i = 0; i < 1; i++) {
