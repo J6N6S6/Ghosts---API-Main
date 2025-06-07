@@ -26,17 +26,20 @@ phases:
   build:
     commands:
       - echo "Construindo imagem Docker..."
+      - export IMAGE_TAG=${CODEBUILD_RESOLVED_SOURCE_VERSION}
+      - echo "BUILD_ID será $IMAGE_TAG"
+      - echo "Building Docker image..."
       - docker build \
-          --build-arg BUILD_ID=$CODEBUILD_RESOLVED_SOURCE_VERSION \
-          -t $ECR_REPO_URI:$IMAGE_TAG \
-          -t $ECR_REPO_URI:latest \
+          --build-arg BUILD_ID=$IMAGE_TAG \
+          -t ${ECR_REPO_URI}:$IMAGE_TAG \
+          -t ${ECR_REPO_URI}:latest \
           .
 
   post_build:
     commands:
       - echo "Enviando imagem para ECR..."
-      - docker push $ECR_REPO_URI:$IMAGE_TAG
-      - docker push $ECR_REPO_URI:latest
+      - docker push ${ECR_REPO_URI}:$IMAGE_TAG
+      - docker push ${ECR_REPO_URI}:latest
 
 cache:
   paths:
