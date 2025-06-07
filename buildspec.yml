@@ -29,11 +29,7 @@ phases:
       - export IMAGE_TAG=${CODEBUILD_RESOLVED_SOURCE_VERSION}
       - echo "BUILD_ID será $IMAGE_TAG"
       - echo "Building Docker image..."
-      - docker build \
-          --build-arg BUILD_ID=$IMAGE_TAG \
-          -t ${ECR_REPO_URI}:$IMAGE_TAG \
-          -t ${ECR_REPO_URI}:latest \
-          .
+      - docker build --build-arg BUILD_ID=$IMAGE_TAG -t ${ECR_REPO_URI}:$IMAGE_TAG -t ${ECR_REPO_URI}:latest .
 
   post_build:
     commands:
