@@ -57,7 +57,7 @@ export class WarnsController {
     };
   }
 
-  @Patch('@admin/warn:/id')
+  @Patch('@admin/warn/:id')
   @IsAdmin()
   async updateWarn(
     @Param('id') id: string,
