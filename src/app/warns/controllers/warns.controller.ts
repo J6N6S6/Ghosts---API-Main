@@ -14,7 +14,7 @@ import { WarnService } from '../services/warns.service';
 import { CreateWarnDTO } from '../dtos/CreateWarnDTO';
 import { UpdateWarnDTO } from '../dtos/UpdateWarnDTO';
 
-@Controller()
+@Controller('@admin')
 export class WarnsController {
   constructor(private readonly warnsService: WarnService) {}
 
