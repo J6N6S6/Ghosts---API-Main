@@ -19,6 +19,9 @@ phases:
       - echo "Instalando dependências..."
       - npm install --legacy-peer-deps
       - npm run build
+      - echo "PGSSLMODE is $PGSSLMODE"
+      - node -e "console.log('sslmode via libpq:', process.env.PGSSLMODE)"
+
 
   build:
     commands:
