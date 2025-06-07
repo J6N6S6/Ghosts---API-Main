@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+import { Module, Logger } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { InterBankModule } from './providers/inter-bank/interbank.module';
 import { MercadoPagoModule } from './providers/mercado-pago/mercadopago.module';
 import { OpenPixModule } from './providers/openpix/openpix.module';
@@ -15,6 +16,25 @@ import { CelcoinModule } from './providers/celcoin/celcoin.module';
 
 @Module({
   imports: [
+    ConfigModule,
+    CacheModule.register(),
+    HttpModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => {
+        const isSandbox = configService.get<boolean>('pagstar.is_sandbox');
+        return {
+          baseURL: isSandbox
+            ? 'https://dev-api.pagstar.com/api'
+            : 'https://api.pagstar.com/api',
+          headers: {
+            'User-Agent': `Sunize Digital (${configService.get<string>(
+              'pagstar.client_email',
+            )})`,
+          },
+        };
+      },
+    }),
     Safe2PayModule,
     InterBankModule,
     MercadoPagoModule,
