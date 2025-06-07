@@ -1,12 +1,11 @@
 import { ProcessBalanceRegularizationCase } from './../process-balance-regularization/process-balance-regularization.case';
 // settle-user-reserved-balance.service.ts
 import { Injectable } from '@nestjs/common';
-import { InjectQueue, Process, Processor } from '@nestjs/bull';
+import { InjectQueue } from '@nestjs/bull';
 import { Job, Queue } from 'bull';
 import { IEUserSecureReserveRepository } from '@/domain/repositories/user_secure_reserve.repository';
 
 @Injectable()
-@Processor('balance_regularization')
 export class BalanceRegularizationCase {
   constructor(
     private readonly userSecureReserveRepository: IEUserSecureReserveRepository,
@@ -16,7 +15,6 @@ export class BalanceRegularizationCase {
     private readonly processBalanceRegularizationQueue: Queue,
   ) {}
 
-  @Process()
   async execute(job: Job<any>): Promise<any> {
     console.log('EXECUTANDO O BALANCE REGULARIZATION CASE: ', job.data);
     const user_id = job.data.user_id;
@@ -28,7 +26,7 @@ export class BalanceRegularizationCase {
     console.log('VALOR ALVO: ', targetAmount);
 
     let currentTotal = Number(0);
-    let selectedTransactions = [];
+    const selectedTransactions = [];
     let skip = 0; // Variável para controlar a paginação (pular as transações já processadas)
     const pageSize = 10; // Número de transações que serão buscadas por vez
 
