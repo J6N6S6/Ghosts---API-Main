@@ -1,6 +1,6 @@
 import { HttpModule } from '@nestjs/axios';
 import { CacheModule } from '@nestjs/cache-manager';
-import { Module, OnModuleInit } from '@nestjs/common';
+import { Logger, Module, OnModuleInit } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PagstarService } from './pagstar.service';
 import { CreatePixPaymentCase } from './useCases/create-pix-payment/create_pix_payment.case';
@@ -39,11 +39,18 @@ import { StartPagstarSessionCase } from './useCases/start-pagstar-session/start_
   exports: [PagstarService],
 })
 export class PagstarModule implements OnModuleInit {
+  private readonly logger = new Logger(PagstarModule.name);
   constructor(
     private readonly startPagstarSessionCase: StartPagstarSessionCase,
+    private readonly configService: ConfigService,
   ) {}
 
   async onModuleInit(): Promise<void> {
+    const enabled = this.configService.get<string>('PAGSTAR_ENABLED');
+    if (enabled === 'false') {
+      this.logger.log('Pagstar integration DISABLED — pulando startSession');
+      return;
+    }
     await this.startPagstarSessionCase.execute();
   }
 }
