@@ -10,7 +10,7 @@ export class SettleUserReservedBalancelQueueService {
     private readonly settleUserReservedBalance: SettleUserReservedBalance,
   ) {}
 
-  @Process('settle_user_reserved_balance')
+  @Process('run_user_reserved_balance')
   async processQueue(job: Job<any>) {
     let progress = 0;
     for (let i = 0; i < 1; i++) {

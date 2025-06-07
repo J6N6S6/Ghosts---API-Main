@@ -6,7 +6,7 @@ import { BalanceRegularizationCase } from '../useCases/balance-regularization/ba
 export class BalanceRegularizationProcessor {
   constructor(private readonly balanceRegCase: BalanceRegularizationCase) {}
 
-  @Process('balance_regularization')
+  @Process('run_balance_regularization')
   async handle(job: Job<any>) {
     try {
       await this.balanceRegCase.execute(job);
