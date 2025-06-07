@@ -68,8 +68,6 @@ export class ProcessBalanceRegularizationCase {
           },
         }),
       );
-
-      // job.progress(1);
     } catch (error) {
       console.log(
         'ERRO AO PROCESSAR TRANSAÇÃO [REGULARIZATION BALANCE]: ',
