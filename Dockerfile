@@ -4,6 +4,11 @@
 FROM node:20-bullseye-slim AS builder
 WORKDIR /usr/app
 
+
+ARG BUILD_ID=local
+LABEL build_id=$BUILD_ID
+
+
 # Copia apenas os arquivos necessários para instalar dependências
 COPY package.json package-lock.json ./
 
