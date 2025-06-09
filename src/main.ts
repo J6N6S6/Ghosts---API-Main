@@ -4,6 +4,10 @@ import { NestFactory } from '@nestjs/core';
 import { ServerModule } from './server.module';
 import * as moment from 'moment-timezone';
 
+if (!process.env.DEBUG) {
+  process.env.DEBUG = 'bull:*';
+}
+
 async function bootstrap() {
   const app = await NestFactory.create(ServerModule, {
     cors: {
@@ -24,6 +28,7 @@ async function bootstrap() {
           ],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     },
+    logger: ['error', 'warn', 'log', 'debug', 'verbose'],
   });
 
   app.useGlobalPipes(

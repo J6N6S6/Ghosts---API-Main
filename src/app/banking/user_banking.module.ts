@@ -52,10 +52,13 @@ import { ProcessBalanceRegularizationCase } from './useCases/process-balance-reg
       name: 'process_secure_reserve_transaction',
     }),
     BullModule.registerQueue({
-      name: 'balance_regularization',
+      name: 'balance_regularization_processor',
     }),
     BullModule.registerQueue({
       name: 'process_balance_regularization',
+    }),
+    BullModule.registerQueue({ 
+      name: 'balance_regularization' 
     }),
     HttpModule.registerAsync({
       imports: [ConfigModule],
