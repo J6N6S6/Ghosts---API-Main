@@ -1,7 +1,7 @@
 # --------------------------------------------------
 # Fase de Build (para compilar o código)
 # --------------------------------------------------
-FROM node:20-bullseye-slim AS builder
+FROM public.ecr.aws/docker/library/node:20-bullseye-slim AS builder
 WORKDIR /usr/app
 
 
@@ -25,7 +25,7 @@ COPY firebase-adminsdk.json /usr/app/firebase-adminsdk.json
 # --------------------------------------------------
 # Fase de Produção (imagem final minimalista)
 # --------------------------------------------------
-FROM node:20-bullseye-slim
+FROM public.ecr.aws/docker/library/node:20-bullseye-slim AS runner
 WORKDIR /usr/app
 
 # Define variáveis de ambiente para produção
