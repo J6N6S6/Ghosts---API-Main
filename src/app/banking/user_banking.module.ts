@@ -54,9 +54,9 @@ import { ProcessBalanceRegularizationCase } from './useCases/process-balance-reg
     BullModule.registerQueue({
       name: 'process_balance_regularization',
     }),
-    BullModule.registerQueue({
+    /*BullModule.registerQueue({
       name: 'balance_regularization',
-    }),
+    }),*/
     HttpModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
