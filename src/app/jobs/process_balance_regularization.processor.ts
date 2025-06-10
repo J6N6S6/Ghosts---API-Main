@@ -1,6 +1,6 @@
 import { Processor, Process } from '@nestjs/bull';
 import { Job } from 'bull';
-import { ProcessBalanceRegularizationCase } from '../useCases/process-balance-regularization/process-balance-regularization.case';
+import { ProcessBalanceRegularizationCase } from '../banking/useCases/process-balance-regularization/process-balance-regularization.case';
 
 @Processor('process_balance_regularization')
 export class ProcessBalanceRegularizationProcessor {

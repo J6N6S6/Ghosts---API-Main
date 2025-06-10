@@ -3,14 +3,10 @@ import { IEUserSecureReserveRepository } from '@/domain/repositories/user_secure
 import { UsersRepository } from '@/domain/repositories/users.repository';
 import { WithdrawalsRepository } from '@/domain/repositories/withdrawals.repository';
 import { Injectable } from '@nestjs/common';
-import * as dayjs from 'dayjs';
-import { In, MoreThan } from 'typeorm';
+import { In } from 'typeorm';
 import { InjectQueue } from '@nestjs/bull';
-
 import { Queue } from 'bull';
-
-import { SettleUserReservedBalance } from '../settle-user-reserved-balance/settle-user-reserved-balance.case';
-import { BalanceRegularizationCase } from '../balance-regularization/balance-regularization.case';
+import * as dayjs from 'dayjs';
 
 @Injectable()
 export class GetAccountBalanceCase {
@@ -19,38 +15,43 @@ export class GetAccountBalanceCase {
     private readonly userSecureReserveRespository: IEUserSecureReserveRepository,
     private readonly withdrawalsRepository: WithdrawalsRepository,
     private readonly usersRepository: UsersRepository,
+
     @InjectQueue('settle_user_reserved_balance')
-    private settleUserReservedBalanceQueue: Queue,
+    private readonly settleUserReservedBalanceQueue: Queue,
+
+    @InjectQueue('process_balance_regularization')
+    private readonly balanceRegularizationQueue: Queue, // <-- Corrigido
   ) {}
-  /*@InjectQueue('balance_regularization')
-    private balanceRegularizationQueue: Queue,
-    private readonly settleUserReservedBalance: SettleUserReservedBalance,
-    private readonly balanceRegularizationCase: BalanceRegularizationCase,*/
+
   async execute(user_id: string, shouldSettleReservedBalance = true) {
-    // this.settleUserReservedBalance.execute(user_id);
-    this.settleUserReservedBalanceQueue.add({
-      user_id,
-    });
+    if (shouldSettleReservedBalance) {
+      await this.settleUserReservedBalanceQueue.add('settle', { user_id });
+    }
 
-    const [balance, withdrawals, reserved_amount] = await Promise.all([
+    const [balance, withdrawals, reservedTransactions] = await Promise.all([
       this.userBankingTransactionsRepository.getBalanceByUserId(user_id),
-
       this.withdrawalsRepository.find({
         where: {
           user_id,
           status: In(['pending', 'approved']),
         },
       }),
-      this.userSecureReserveRespository.getReservedAmountByUserId(user_id),
+      this.userSecureReserveRespository.findMany({
+        where: {
+          user_id,
+          status: 'in_reserve',
+        },
+      }),
     ]);
 
-    /*const total_balance = Number(balance.toFixed(2));
-    if (total_balance < 0) {
-      this.balanceRegularizationQueue.add({
+    const total_balance = Number(balance.toFixed(2));
+
+    if (shouldSettleReservedBalance && total_balance < 0) {
+      await this.balanceRegularizationQueue.add('regularize', {
         user_id,
         user_available_balance: total_balance,
       });
-    }*/
+    }
 
     const [pending_withdrawals, approved_withdrawals] = withdrawals.reduce(
       (acc, withdrawal) => {
@@ -59,27 +60,33 @@ export class GetAccountBalanceCase {
         } else {
           acc[1] += withdrawal.amount;
         }
-
         return acc;
       },
       [0, 0],
     );
 
-    // available_balance precisa ser calculado o valor das movimentacoes pendentes
-    // considerando que o liquidation_date seja maior que hoje, e se a data for menor que 30d, acrescetar no pending_balance e reserve_amount
-    // o valor da reserva, o valor da reserva e de acordo com a % de reserva do usuario que e definida pela taxa, a taxa e baseada no dias que
-    // que a transacao foi feita, se foi feita em 7d e 10%, 15d e 7%, 30d e 3%
+    let reserve_amount = 0;
+    let pending_balance = 0;
 
-    const reserve_amount = reserved_amount || 0;
-    const pending_balance = reserved_amount || 0;
-    const total_balance = 0;
-    const available_balance = 0;
+    const now = dayjs();
+
+    for (const tx of reservedTransactions) {
+      const createdAt = dayjs(tx.created_at);
+      const days = now.diff(createdAt, 'day');
+
+      let percentage = 0;
+      if (days < 7) percentage = 0.1;
+      else if (days < 15) percentage = 0.07;
+      else if (days < 30) percentage = 0.03;
+
+      const reserve = tx.value * percentage;
+      reserve_amount += reserve;
+      pending_balance += reserve; // conforme comentário no código original
+    }
 
     return {
-      total_balance: total_balance + reserve_amount,
+      total_balance: Number((total_balance + reserve_amount).toFixed(2)),
       available_balance: Number(total_balance.toFixed(2)),
-      /*total_balance: total_balance + reserve_amount,
-      available_balance: Number(total_balance.toFixed(2)),*/
       reserve_amount: Number(reserve_amount.toFixed(2)),
       pending_balance: Number(pending_balance.toFixed(2)),
       pending_withdrawals: Number(pending_withdrawals.toFixed(2)),

@@ -1,6 +1,4 @@
 import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
-//import { BalanceRegularizationProcessor } from './queue/balance_regularization.processor';
-import { ProcessBalanceRegularizationProcessor } from './queue/process_balance_regularization.processor';
 import { InfraModule } from '@/infra/infra.module';
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
@@ -25,7 +23,6 @@ import { WithdrawalsControlCase } from './useCases/withdrawals-control/withdrawa
 import { WithdrawalsSecretCase } from './useCases/withdrawals-secret/withdrawals_secret.case';
 import { ProcessWithdrawCase } from './useCases/process-withdraw/process_withdraw.case';
 import { WithdrawalQueueService } from './queue/withdraw.queue';
-import { BullModule } from '@nestjs/bull';
 import { WithdrawalsControlMetricsCase } from './useCases/withdrawals-control-metrics/withdrawals_control_metrics.case';
 import { SettleUserReservedBalance } from './useCases/settle-user-reserved-balance/settle-user-reserved-balance.case';
 import { SettleUserReservedBalancelQueueService } from './queue/settle_user_reserved_balance.queue';
@@ -33,8 +30,6 @@ import { GetUserTaxesCase } from './useCases/get-user-taxes/get-user-taxes.case'
 import { ProcessSecureReserveTransaction } from './useCases/process-secure-reserve-transaction/process-secure-reserve-transaction.case';
 import { ApproveAutomaticWithdrawCase } from './useCases/approve-automatic-withdraw/approve_automatic_withdraw.case';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { BalanceRegularizationCase } from './useCases/balance-regularization/balance-regularization.case';
-import { ProcessBalanceRegularizationCase } from './useCases/process-balance-regularization/process-balance-regularization.case';
 
 @Module({
   imports: [
@@ -42,21 +37,6 @@ import { ProcessBalanceRegularizationCase } from './useCases/process-balance-reg
     IpnModule,
     HttpModule,
     NotificationsModule,
-    BullModule.registerQueue({
-      name: 'withdraw_request',
-    }),
-    BullModule.registerQueue({
-      name: 'settle_user_reserved_balance',
-    }),
-    BullModule.registerQueue({
-      name: 'process_secure_reserve_transaction',
-    }),
-    BullModule.registerQueue({
-      name: 'process_balance_regularization',
-    }),
-    /*BullModule.registerQueue({
-      name: 'balance_regularization',
-    }),*/
     HttpModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -71,8 +51,6 @@ import { ProcessBalanceRegularizationCase } from './useCases/process-balance-reg
     AdminWithdrawController,
   ],
   providers: [
-    //BalanceRegularizationProcessor,
-    ProcessBalanceRegularizationProcessor,
     CreateBankAccountCase,
     GetAccountBalanceCase,
     GetBankAccountCase,
@@ -95,8 +73,6 @@ import { ProcessBalanceRegularizationCase } from './useCases/process-balance-reg
     GetUserTaxesCase,
     ProcessSecureReserveTransaction,
     ApproveAutomaticWithdrawCase,
-    BalanceRegularizationCase,
-    ProcessBalanceRegularizationCase,
   ],
   exports: [UsersBankingService],
 })

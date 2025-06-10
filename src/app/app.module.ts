@@ -30,9 +30,11 @@ import { AdminModule } from './admin/admin.module';
 import { IntegrationsModule } from './integrations/integrations.module';
 import { WarnsModule } from './warns/warns.module';
 import { DatadogMiddleware } from '@/infra/apps/datadog/midleware/datadog.middleware';
+import { JobsModule } from './jobs/jobs.module';
 
 @Module({
   imports: [
+    JobsModule,
     AuthModule,
     TransactionsModule,
     CheckoutModule,
