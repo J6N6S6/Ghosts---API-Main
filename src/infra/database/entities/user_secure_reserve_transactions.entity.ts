@@ -45,8 +45,8 @@ export class UserSecureReserveTransactionsEntity {
   @Column({ nullable: true, default: null })
   liquidation_date?: Date | null;
 
-  @Column({ default: () => 'CURRENT_TIMESTAMP' })
-  created_at?: Date;
+  @Column({ name: 'created_at', type: 'timestamp with time zone' })
+  created_at: Date;
 
   @Column({ default: () => 'CURRENT_TIMESTAMP' })
   updated_at?: Date;

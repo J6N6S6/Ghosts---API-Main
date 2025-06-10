@@ -35,7 +35,13 @@ export class TypeormUserSecureReserveRepository
   findMany(
     options?: FindManyOptions<UserSecureReserveTransactionsEntity>,
   ): Promise<UserSecureReserveTransactionsEntity[]> {
-    return this.userSecureReserveRepository.find(options);
+    return this.userSecureReserveRepository.find({
+      ...options,
+      where: {
+        ...options?.where,
+        value: MoreThan(0), // <- adiciona filtro para excluir valores 0 ou negativos
+      },
+    });
   }
 
   findById(id: string): Promise<UserSecureReserveTransactionsEntity> {
