@@ -5,6 +5,7 @@ import { ProcessBalanceRegularizationProcessor } from './process_balance_regular
 import { BalanceRegularizationCase } from '../banking/useCases/balance-regularization/balance-regularization.case';
 import { ProcessBalanceRegularizationCase } from '../banking/useCases/process-balance-regularization/process-balance-regularization.case';
 import { BankAccountsModule } from '../banking/user_banking.module';
+import { InfraModule } from '@/infra/infra.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { BankAccountsModule } from '../banking/user_banking.module';
     BalanceRegularizationProcessor,
     ProcessBalanceRegularizationCase,
     BalanceRegularizationCase,
+    InfraModule,
   ],
   exports: [ProcessBalanceRegularizationCase, BalanceRegularizationCase],
 })
