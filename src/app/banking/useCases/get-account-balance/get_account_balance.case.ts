@@ -72,8 +72,12 @@ export class GetAccountBalanceCase {
 
     const reserve_amount = reserved_amount || 0;
     const pending_balance = reserved_amount || 0;
+    const total_balance = 0;
+    const available_balance = 0;
 
     return {
+      total_balance: total_balance + reserve_amount,
+      available_balance: Number(total_balance.toFixed(2)),
       /*total_balance: total_balance + reserve_amount,
       available_balance: Number(total_balance.toFixed(2)),*/
       reserve_amount: Number(reserve_amount.toFixed(2)),
