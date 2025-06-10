@@ -21,12 +21,11 @@ export class GetAccountBalanceCase {
     private readonly usersRepository: UsersRepository,
     @InjectQueue('settle_user_reserved_balance')
     private settleUserReservedBalanceQueue: Queue,
-    @InjectQueue('balance_regularization')
+  ) {}
+  /*@InjectQueue('balance_regularization')
     private balanceRegularizationQueue: Queue,
     private readonly settleUserReservedBalance: SettleUserReservedBalance,
-    private readonly balanceRegularizationCase: BalanceRegularizationCase,
-  ) {}
-
+    private readonly balanceRegularizationCase: BalanceRegularizationCase,*/
   async execute(user_id: string, shouldSettleReservedBalance = true) {
     // this.settleUserReservedBalance.execute(user_id);
     this.settleUserReservedBalanceQueue.add({
@@ -45,13 +44,13 @@ export class GetAccountBalanceCase {
       this.userSecureReserveRespository.getReservedAmountByUserId(user_id),
     ]);
 
-    const total_balance = Number(balance.toFixed(2));
+    /*const total_balance = Number(balance.toFixed(2));
     if (total_balance < 0) {
       this.balanceRegularizationQueue.add({
         user_id,
         user_available_balance: total_balance,
       });
-    }
+    }*/
 
     const [pending_withdrawals, approved_withdrawals] = withdrawals.reduce(
       (acc, withdrawal) => {
@@ -75,8 +74,8 @@ export class GetAccountBalanceCase {
     const pending_balance = reserved_amount || 0;
 
     return {
-      total_balance: total_balance + reserve_amount,
-      available_balance: Number(total_balance.toFixed(2)),
+      /*total_balance: total_balance + reserve_amount,
+      available_balance: Number(total_balance.toFixed(2)),*/
       reserve_amount: Number(reserve_amount.toFixed(2)),
       pending_balance: Number(pending_balance.toFixed(2)),
       pending_withdrawals: Number(pending_withdrawals.toFixed(2)),
