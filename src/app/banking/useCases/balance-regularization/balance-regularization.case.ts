@@ -1,6 +1,5 @@
 import { ProcessBalanceRegularizationCase } from './../process-balance-regularization/process-balance-regularization.case';
 import { Injectable, Inject } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { InjectQueue } from '@nestjs/bull';
 import { Job, Queue } from 'bull';
 import { IEUserSecureReserveRepository } from '@/domain/repositories/user_secure_reserve.repository';
@@ -9,10 +8,10 @@ import { UserBankingTransactionsRepository } from '@/domain/repositories';
 @Injectable()
 export class BalanceRegularizationCase {
   constructor(
-    @InjectRepository(IEUserSecureReserveRepository)
+    @Inject(IEUserSecureReserveRepository)
     private readonly secureReserveRepo: IEUserSecureReserveRepository,
 
-    @InjectRepository(UserBankingTransactionsRepository)
+    @Inject(UserBankingTransactionsRepository)
     private readonly bankingTxRepo: UserBankingTransactionsRepository,
 
     private readonly processBalanceRegularizationCase: ProcessBalanceRegularizationCase,
