@@ -2,10 +2,7 @@ import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bull';
 import { BalanceRegularizationProcessor } from './balance_regularization.processor';
 import { ProcessBalanceRegularizationProcessor } from './process_balance_regularization.processor';
-import { BalanceRegularizationCase } from '../banking/useCases/balance-regularization/balance-regularization.case';
-import { ProcessBalanceRegularizationCase } from '../banking/useCases/process-balance-regularization/process-balance-regularization.case';
 import { BankAccountsModule } from '../banking/user_banking.module';
-import { InfraModule } from '@/infra/infra.module';
 
 @Module({
   imports: [
@@ -21,10 +18,10 @@ import { InfraModule } from '@/infra/infra.module';
   providers: [
     ProcessBalanceRegularizationProcessor,
     BalanceRegularizationProcessor,
-    ProcessBalanceRegularizationCase,
-    BalanceRegularizationCase,
-    InfraModule,
   ],
-  exports: [ProcessBalanceRegularizationCase, BalanceRegularizationCase],
+  exports: [
+    ProcessBalanceRegularizationProcessor,
+    BalanceRegularizationProcessor,
+  ],
 })
 export class JobsModule {}

@@ -1,14 +1,20 @@
 import { ProcessBalanceRegularizationCase } from './../process-balance-regularization/process-balance-regularization.case';
-// settle-user-reserved-balance.service.ts
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { InjectQueue } from '@nestjs/bull';
 import { Job, Queue } from 'bull';
 import { IEUserSecureReserveRepository } from '@/domain/repositories/user_secure_reserve.repository';
+import { UserBankingTransactionsRepository } from '@/domain/repositories';
 
 @Injectable()
 export class BalanceRegularizationCase {
   constructor(
-    private readonly userSecureReserveRepository: IEUserSecureReserveRepository,
+    @InjectRepository(IEUserSecureReserveRepository)
+    private readonly secureReserveRepo: IEUserSecureReserveRepository,
+
+    @InjectRepository(UserBankingTransactionsRepository)
+    private readonly bankingTxRepo: UserBankingTransactionsRepository,
+
     private readonly processBalanceRegularizationCase: ProcessBalanceRegularizationCase,
 
     @InjectQueue('process_balance_regularization')
@@ -33,7 +39,7 @@ export class BalanceRegularizationCase {
     try {
       while (currentTotal < targetAmount) {
         // Buscar um lote de 10 transações de cada vez
-        const transactions = await this.userSecureReserveRepository.findMany({
+        const transactions = await this.secureReserveRepo.findMany({
           where: {
             user_id,
             status: 'in_reserve',

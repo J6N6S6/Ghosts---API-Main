@@ -30,6 +30,8 @@ import { GetUserTaxesCase } from './useCases/get-user-taxes/get-user-taxes.case'
 import { ProcessSecureReserveTransaction } from './useCases/process-secure-reserve-transaction/process-secure-reserve-transaction.case';
 import { ApproveAutomaticWithdrawCase } from './useCases/approve-automatic-withdraw/approve_automatic_withdraw.case';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ProcessBalanceRegularizationCase } from './useCases/process-balance-regularization/process-balance-regularization.case';
+import { BalanceRegularizationCase } from './useCases/balance-regularization/balance-regularization.case';
 
 @Module({
   imports: [
@@ -51,6 +53,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     AdminWithdrawController,
   ],
   providers: [
+    ProcessBalanceRegularizationCase,
+    BalanceRegularizationCase,
     CreateBankAccountCase,
     GetAccountBalanceCase,
     GetBankAccountCase,
@@ -74,6 +78,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     ProcessSecureReserveTransaction,
     ApproveAutomaticWithdrawCase,
   ],
-  exports: [UsersBankingService],
+  exports: [
+    UsersBankingService,
+    ProcessBalanceRegularizationCase,
+    BalanceRegularizationCase,
+  ],
 })
 export class BankAccountsModule {}
