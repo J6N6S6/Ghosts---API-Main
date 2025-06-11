@@ -54,7 +54,6 @@ import { BalanceRegularizationCase } from './useCases/balance-regularization/bal
   ],
   providers: [
     ProcessBalanceRegularizationCase,
-    BalanceRegularizationCase,
     CreateBankAccountCase,
     GetAccountBalanceCase,
     GetBankAccountCase,
@@ -78,10 +77,6 @@ import { BalanceRegularizationCase } from './useCases/balance-regularization/bal
     ProcessSecureReserveTransaction,
     ApproveAutomaticWithdrawCase,
   ],
-  exports: [
-    UsersBankingService,
-    ProcessBalanceRegularizationCase,
-    BalanceRegularizationCase,
-  ],
+  exports: [UsersBankingService, ProcessBalanceRegularizationCase],
 })
 export class BankAccountsModule {}
