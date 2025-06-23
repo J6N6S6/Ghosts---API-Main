@@ -37,6 +37,7 @@ import { BalanceRegularizationCase } from './useCases/balance-regularization/bal
 import { UserBankingTransactions } from '@/infra/database/entities/user_banking_transactions.entity';
 import { UserBankingTransactionsRepository } from '@/domain/repositories/user_banking_transactions.repository';
 import { TypeormUserBankingTransactionsRepository } from '@/infra/repositories/typeorm/typeorm_user_banking_transactions.repository';
+import { QueuesModule } from '../jobs/queues.module';
 
 @Module({
   imports: [
@@ -52,12 +53,7 @@ import { TypeormUserBankingTransactionsRepository } from '@/infra/repositories/t
       },
     }),
     TypeOrmModule.forFeature([UserBankingTransactions]),
-    BullModule.registerQueue(
-      { name: 'settle_user_reserved_balance' },
-      { name: 'process_balance_regularization' },
-      { name: 'withdraw_request' },
-      { name: 'process_secure_reserve_transaction' },
-    ),
+    QueuesModule,
   ],
   controllers: [
     UsersBankAccountsController,
