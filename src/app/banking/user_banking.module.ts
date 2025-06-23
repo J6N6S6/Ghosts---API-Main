@@ -1,3 +1,5 @@
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { BullModule } from '@nestjs/bull';
 import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
 import { InfraModule } from '@/infra/infra.module';
 import { HttpModule } from '@nestjs/axios';
@@ -32,6 +34,9 @@ import { ApproveAutomaticWithdrawCase } from './useCases/approve-automatic-withd
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ProcessBalanceRegularizationCase } from './useCases/process-balance-regularization/process-balance-regularization.case';
 import { BalanceRegularizationCase } from './useCases/balance-regularization/balance-regularization.case';
+import { UserBankingTransactions } from '@/infra/database/entities/user_banking_transactions.entity';
+import { UserBankingTransactionsRepository } from '@/domain/repositories/user_banking_transactions.repository';
+import { TypeormUserBankingTransactionsRepository } from '@/infra/repositories/typeorm/typeorm_user_banking_transactions.repository';
 
 @Module({
   imports: [
@@ -46,6 +51,13 @@ import { BalanceRegularizationCase } from './useCases/balance-regularization/bal
         return {};
       },
     }),
+    TypeOrmModule.forFeature([UserBankingTransactions]),
+    BullModule.registerQueue(
+      { name: 'settle_user_reserved_balance' },
+      { name: 'process_balance_regularization' },
+      { name: 'withdraw_request' },
+      { name: 'process_secure_reserve_transaction' },
+    ),
   ],
   controllers: [
     UsersBankAccountsController,
@@ -76,7 +88,15 @@ import { BalanceRegularizationCase } from './useCases/balance-regularization/bal
     GetUserTaxesCase,
     ProcessSecureReserveTransaction,
     ApproveAutomaticWithdrawCase,
+    {
+      provide: UserBankingTransactionsRepository,
+      useClass: TypeormUserBankingTransactionsRepository,
+    },
   ],
-  exports: [UsersBankingService, ProcessBalanceRegularizationCase],
+  exports: [
+    UsersBankingService,
+    ProcessBalanceRegularizationCase,
+    UserBankingTransactionsRepository,
+  ],
 })
 export class BankAccountsModule {}

@@ -8,8 +8,9 @@ import { ListProductModulesCase } from './useCases/list-product-modules/list-pro
 import { UpdateModulePositionCase } from './useCases/update-module-position/update-module-position.case';
 import { EditProductModulesCase } from './useCases/edit-product-module/edit-product-module.case';
 import { UpdateAllModulesPositionCase } from './useCases/update-all-modules-position/update-all-modules-position.case';
+import { UserSecureReserveModule } from './user-secure-reserve.module';
 @Module({
-  imports: [InfraModule],
+  imports: [InfraModule, UserSecureReserveModule],
   providers: [
     ModulesService,
     ListProductModulesCase,

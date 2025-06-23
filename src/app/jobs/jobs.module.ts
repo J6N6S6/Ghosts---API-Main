@@ -5,6 +5,7 @@ import { ProcessBalanceRegularizationProcessor } from './process_balance_regular
 import { BankAccountsModule } from '../banking/user_banking.module';
 import { BalanceRegularizationCase } from '../banking/useCases/balance-regularization/balance-regularization.case';
 import { TypeormUserSecureReserveRepository } from 'src/infra/repositories/typeorm/typeorm_user_secure_reserve.repository';
+import { UserSecureReserveModule } from '../modules/user-secure-reserve.module';
 
 @Module({
   imports: [
@@ -16,15 +17,16 @@ import { TypeormUserSecureReserveRepository } from 'src/infra/repositories/typeo
       { name: 'process_secure_reserve_transaction' },
     ),
     BankAccountsModule,
+    UserSecureReserveModule,
   ],
   providers: [
     ProcessBalanceRegularizationProcessor,
     BalanceRegularizationProcessor,
     BalanceRegularizationCase,
-    {
+    /*{
       provide: 'IEUserSecureReserveRepository',
       useClass: TypeormUserSecureReserveRepository,
-    },
+    },*/
   ],
   exports: [
     ProcessBalanceRegularizationProcessor,
