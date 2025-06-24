@@ -31,6 +31,7 @@ import { IntegrationsModule } from './integrations/integrations.module';
 import { WarnsModule } from './warns/warns.module';
 import { DatadogMiddleware } from '@/infra/apps/datadog/midleware/datadog.middleware';
 import { JobsModule } from './jobs/jobs.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -66,6 +67,7 @@ import { JobsModule } from './jobs/jobs.module';
     IntegrationsModule,
     WarnsModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
