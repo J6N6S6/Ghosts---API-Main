@@ -11,7 +11,8 @@ import * as Sentry from '@sentry/node';
 import { IS_ADMIN_KEY } from '../decorators/endpoint-admin.decorator';
 import { IS_PUBLIC_KEY } from '../decorators/endpoint-public.decorator';
 import { AuthService } from '../services/auth.service';
-import { request } from 'http';
+import { request as httpRequest } from 'http';
+
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {
   constructor(
@@ -23,6 +24,11 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
+    const request = context.switchToHttp().getRequest();
+    // Permite acesso à rota de health sem autenticação
+    if (request.method === 'GET' && request.path === '/health') {
+      return true;
+    }
     const handler = context.getHandler();
     const controller = context.getClass();
 
