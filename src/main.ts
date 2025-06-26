@@ -41,7 +41,7 @@ async function bootstrap() {
 
   moment.tz.setDefault('America/New_York');
 
-  await app.listen(process.env.PORT || 8080).then(() => {
+  await app.listen(process.env.PORT || 3333).then(() => {
     new ConsoleLogger().log('app started 🔥');
     new ConsoleLogger().log(new Date());
   });

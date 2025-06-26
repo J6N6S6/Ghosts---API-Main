@@ -31,6 +31,7 @@ WORKDIR /usr/app
 # Define variáveis de ambiente para produção
 ENV NODE_ENV=production
 ENV JWT_SECRET=9fG7@lP3#aD8qYxZ2nJmR5wTuV0kLcFs
+ENV PORT=3333
 
 # Copia apenas as dependências de produção
 COPY package.json package-lock.json ./
